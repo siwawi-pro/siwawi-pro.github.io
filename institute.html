@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Standorte – SiWaWi Institute</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+      color: #222;
+    }
+
+    h1 {
+      color: #0a6aa1;
+    }
+
+    #map {
+      height: 600px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0a6aa1;
+    }
+
+    .box {
+      background: #f5f7f9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Standorte der SiWaWi Institute</h1>
+
+<nav>
+  <a href="index.html">Start</a>
+  <a href="institute.html">Institute</a>
+  <a href="standorte.html">Standorte</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<div class="box">
+  <p>
+    Diese Karte zeigt alle Standorte unserer Forschungsinstitute in Deutschland.
+  </p>
+</div>
+
+<div id="map"></div>
+
+<script>
+  // Karte initialisieren (Deutschland zentriert)
+  var map = L.map('map').setView([51.2, 10.4], 6);
+
+  // OpenStreetMap Layer
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Institute Marker
+
+  L.marker([52.3759, 9.7320]).addTo(map)
+    .bindPopup("<b>Hannover</b><br>SiWaWi Hauptinstitut");
+
+  L.marker([48.1351, 11.5820]).addTo(map)
+    .bindPopup("<b>München</b><br>Hydrologie Institut");
+
+  L.marker([50.1109, 8.6821]).addTo(map)
+    .bindPopup("<b>Frankfurt</b><br>Wasseranalyse Zentrum");
+
+  L.marker([51.0504, 13.7373]).addTo(map)
+    .bindPopup("<b>Dresden</b><br>Umweltforschung Institut");
+
+</script>
+
+</body>
+</html>
