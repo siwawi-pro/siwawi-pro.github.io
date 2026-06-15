@@ -73,9 +73,14 @@
 
   // Institute Marker
 
- 
-  L.marker([53.45650, 9.96833]).addTo(map)
-  .bindPopup("<b>Technische Universität Hamburg (TUHH)</b><br>Wasserressourcen und Wasserversorgung");
+   L.marker([53.45650, 9.96833]).addTo(map)
+  .bindPopup(`
+    <b>Technische Universität Hamburg TUHH</b><br>
+    Wasserressourcen und Wasserversorgung<br><br>
+    <a href="https://www.tuhh.de/wwv/startseite" target="_blank">
+      Zur Website des EBI
+    </a>
+  `);
   
   L.marker([52.38211, 9.71774]).addTo(map)
   .bindPopup(`
@@ -86,11 +91,24 @@
     </a>
   `);
 
-  L.marker([48.1351, 11.5820]).addTo(map)
-    .bindPopup("<b>TU München</b><br>Lehrstuhl und der Versuchsanstalt für Siedlungswasserwirtschaft");
+   L.marker([48.1351, 11.5820]).addTo(map)
+  .bindPopup(`
+    <b>TU München</b><br>
+    Lehrstuhl und der Versuchsanstalt für Siedlungswasserwirtschaft<br><br>
+    <a href="https://www.cee.ed.tum.de/sww/startseite/" target="_blank">
+      Zur Website des ISAH
+    </a>
+  `);
 
- L.marker([51.3127, 9.4797]).addTo(map)
-    .bindPopup("<b>Universität Kassel</b><br>Fachgebiet Siedlungswasserwirtschaft");
+  L.marker([51.3236, 9.5007]).addTo(map)
+  .bindPopup(`
+    <b>Universität Kassel</b><br>
+    Fachgebiet Siedlungswasserwirtschaft<br><br>
+    <a href="https://www.uni-kassel.de/fb14bau/institute/institut-fuer-wasser-abfall-umwelt-iwau/siedlungswasserwirtschaft.html" target="_blank">
+      Zur Website des ISAH
+    </a>
+  `);
+
 
   L.marker([51.0504, 13.7373]).addTo(map)
     .bindPopup("<b>TU Dresden</b><br>Professur für Urban Water Management");
@@ -191,6 +209,15 @@ L.marker([51.2453, 7.1495]).addTo(map)
     Lehr- und Forschungsgebiet Siedlungswasserwirtschaft<br><br>
     <a href="https://siwawi.uni-wuppertal.de/de/" target="_blank">
       Zur Website des Fachgebietes
+    </a>
+  `);
+
+L.marker([49.0104, 8.4191]).addTo(map)
+  .bindPopup(`
+    <b>Karlsruher Institut für Technologie</b><br>
+    Engler-Bunte-Institut, Wasserchemie und Wassertechnologie<br><br>
+    <a href="https://wasserchemie.ebi.kit.edu/index.php" target="_blank">
+      Zur Website des EBI
     </a>
   `);
 
