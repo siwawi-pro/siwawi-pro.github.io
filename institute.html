@@ -72,7 +72,15 @@
   }).addTo(map);
 
   // Institute Marker
-L.marker([53.45650, 9.96833]).addTo(map)
+
+  L.marker([50.7788, 6.0789]).addTo(map)
+  .bindPopup("<b>RWTH Aachen University</b><br>Institut für Siedlungswasserwirtschaft (ISA)"
+              <a href="https://www.isa.rwth-aachen.de" target="_blank">
+      Zur Website des ISA
+    </a>
+            );
+  
+  L.marker([53.45650, 9.96833]).addTo(map)
   .bindPopup("<b>Technische Universität Hamburg (TUHH)</b><br>Wasserressourcen und Wasserversorgung");
   
   L.marker([52.38211, 9.71774]).addTo(map)
