@@ -1,92 +1,182 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SiWaWiPro</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SiWaWiPro</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      line-height: 1.6;
-      padding: 0 20px;
-      color: #222;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --blau:#0a6aa1;
+    --hellblau:#e9f5fb;
+    --grau:#f4f6f8;
+    --text:#222;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--grau);
+    color:var(--text);
+    max-width:1000px;
+    margin:0 auto;
+    padding:0 20px 40px;
+    line-height:1.7;
+}
+
+header{
+    background:white;
+    padding:30px;
+    margin-top:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+h1{
+    color:var(--blau);
+    margin-bottom:5px;
+}
+
+nav{
+    margin-top:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--blau);
+    font-weight:600;
+    margin-right:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#05507b;
+}
+
+.box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin-top:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    border-left:6px solid var(--blau);
+}
+
+h2{
+    color:var(--blau);
+    margin-top:0;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+footer{
+    text-align:center;
+    margin-top:40px;
+    color:gray;
+    font-size:0.9em;
+}
+
+@media (max-width:700px){
+
+    body{
+        padding:0 15px 30px;
     }
 
-    header {
-      border-bottom: 2px solid #eee;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
+    nav a{
+        display:block;
+        margin-bottom:10px;
     }
 
-    h1 {
-      color: #0a6aa1;
-    }
+}
 
-    nav a {
-      margin-right: 15px;
-      text-decoration: none;
-      color: #0a6aa1;
-    }
-
-    .box {
-      background: #ADD8E6;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 15px 0;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>SiWaWiPro</h1>
-  <p>Gruppe der Professor*innen der universitären Siedlungswasserwirtschaft</p>
 
-  <nav>
-    <a href="#">Über uns</a>
-    <a href="professor_innen.html">Professor*innen</a>
-    <a href="institute.html">Institute</a>
-    <a href="positionen.html">Positionen</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
+<h1>SiWaWiPro</h1>
+
+<p>Gruppe der Professor*innen der universitären Siedlungswasserwirtschaft</p>
+
+<nav>
+<a href="#">Über uns</a>
+<a href="professor_innen.html">Professor*innen</a>
+<a href="institute.html">Institute</a>
+<a href="positionen.html">Positionen</a>
+<a href="kontakt.html">Kontakt</a>
+</nav>
+
 </header>
 
+
 <section class="box">
-  <h2>Über uns</h2>
-  <p>
-    Die Professoren*innengruppe Siedlungswasserwirtschaft hat sich zum Ziel gesetzt,
+
+<h2>Über uns</h2>
+
+<p>
+Die Professoren*innengruppe Siedlungswasserwirtschaft hat sich zum Ziel gesetzt,
 der ingenieurbasierten, universitären Forschung und Lehre in der
 Siedlungswasserwirtschaft ein abgestimmtes Mandat zu geben und die Vernetzungen
 der Akteurinnen und Akteure untereinander zu fördern.
-  </p>
+</p>
+
 </section>
+
 
 <section class="box">
-  <h2>Aktivitäten</h2>
-  <ul>
-    <li>Stärkung der Zusammenarbeit in Lehre, Forschung und
-Nachwuchsförderung</li>
-    <li>Austausch mit anderen Netzwerken und Institutionen</li>
-    <li>Entwicklung relevanter Forschungsthemen</li>
-    <li>Unterstützung der nachhaltigen Sicherung und Pflege von Forschungsdaten</li>
-    <li>Kommunikation der in unserer Gruppe erarbeiteten Ergebnisse</li>    
-  </ul>
+
+<h2>Aktivitäten</h2>
+
+<ul>
+<li>Stärkung der Zusammenarbeit in Lehre, Forschung und Nachwuchsförderung</li>
+
+<li>Austausch mit anderen Netzwerken und Institutionen</li>
+
+<li>Entwicklung relevanter Forschungsthemen</li>
+
+<li>Unterstützung der nachhaltigen Sicherung und Pflege von Forschungsdaten</li>
+
+<li>Kommunikation der in unserer Gruppe erarbeiteten Ergebnisse</li>
+
+</ul>
+
 </section>
+
 
 <section class="box">
-  <h2>Gruppensprecher</h2>
-  <p>Aktuelle Sprecher der Gruppe (Amtsperiode 2026 - 2028) sind Prof. Dr.-Ing. Stephan Köster (Leibniz Universität Hannover) und Prof. Dr.-Ing. Tobias Morck (Universität Kassel)</p>
-  <p>E-Mail: koester@isah.uni-hannover.de</p>
-  <p>E-Mail: morck@uni-kassel.de</p>
+
+<h2>Gruppensprecher</h2>
+
+<p>
+Aktuelle Sprecher der Gruppe (Amtsperiode 2026 - 2028) sind Prof. Dr.-Ing. Stephan Köster (Leibniz Universität Hannover) und Prof. Dr.-Ing. Tobias Morck (Universität Kassel)
+</p>
+
+<p>E-Mail: koester@isah.uni-hannover.de</p>
+
+<p>E-Mail: morck@uni-kassel.de</p>
 
 </section>
 
-<footer style="margin-top: 40px; font-size: 0.9em; color: gray;">
-  © SiWaWiPro 2026
+
+<footer>
+© SiWaWiPro 2026
 </footer>
 
 </body>
