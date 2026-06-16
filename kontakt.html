@@ -3,78 +3,253 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt & Impressum – SiWaWi</title>
+  <title>Kontakt – SiWaWi</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 40px auto;
-      line-height: 1.6;
       padding: 0 20px;
       color: #222;
     }
 
-    h1, h2 {
+    h1 {
       color: #0a6aa1;
     }
 
-    .box {
-      background: #f5f7f9;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 20px 0;
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
     }
 
-    a {
+    .card {
+      width: 240px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      background: white;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px 0;
       color: #0a6aa1;
+      font-size: 15px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: #0a6aa1;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .btn:hover {
+      background: #084d73;
     }
   </style>
 </head>
 
 <body>
-<p>
-  <a href="index.html">⬅ Zurück zur Startseite</a>
-</p>
-  
-<h1>Kontakt</h1>
 
-<div class="box">
-  <h2>SiWaWiPro</h2>
+<h1>SiWaWi Kontakt</h1>
 
-  <p>
-    E-Mail: <a href="mailto:koester@isah.uni-hannover.de">koester@isah.uni-hannover.de</a><br>
-    E-Mail: <a href="mailto:morck@uni-kassel.de">morck@uni-kassel.de</a><br>
-    Website: <a href="https://siwawi-pro.github.io">https://siwawi-pro.github.io</a>
-  </p>
+<div class="grid">
 
-  <p>
-    Wir freuen uns über Anfragen zu den Themen Forschung und Lehre in der Siedlungswasserwirtschaft.
-  </p>
-</div>
+  <!-- A -->
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Engelhart, Markus</h3>
+    <p>TU Darmstadt</p>
+    <a class="btn" href="mailto:m.engelhart@iwar.tu-darmstadt.de">E-Mail</a>
+  </div>
 
-<h1>Impressum</h1>
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Beier, Silvio</h3>
+    <p>Bauhaus-Universität Weimar</p>
+    <a class="btn" href="mailto:silvio.beier@uni-weimar.de">E-Mail</a>
+  </div>
 
-<div class="box">
-  <h2>Angaben gemäß § 5 TMG</h2>
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Morck, Tobias</h3>
+    <p>Universität Kassel</p>
+    <a class="btn" href="mailto:morck@uni-kassel.de">E-Mail</a>
+  </div>
 
-  <p>
-    SiWaWiPro<br>
-    Gruppe der Professor*innen der universitären Siedlungswasserwirtschaft<br>
-    Deutschland
-  </p>
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Dittmer, Ulrich</h3>
+    <p>RPTU Kaiserslautern</p>
+    <a class="btn" href="mailto:ulrich.dittmer@rptu.de">E-Mail</a>
+  </div>
 
-  <h2>Verantwortlich für den Inhalt</h2>
-  <p>
-    SiWaWiPro<br>
-    E-Mail: koester@isah.uni-hannover.de
-  </p>
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Steinmetz, Heidrun</h3>
+    <p>RPTU Kaiserslautern</p>
+    <a class="btn" href="mailto:heidrun.steinmetz@rptu.de">E-Mail</a>
+  </div>
 
-  <h2>Haftungsausschluss</h2>
-  <p>
-    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
-    Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.
-  </p>
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Dockhorn, Thoma</h3>
+    <p>TU Braunschweig</p>
+    <a class="btn" href="mailto:t.dockhorn@tu-braunschweig.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Drewes, Jörg E.</h3>
+    <p>TUM</p>
+    <a class="btn" href="mailto:jdrewes@tum.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Helmreich, Brigitte</h3>
+    <p>TUM</p>
+    <a class="btn" href="mailto:b.helmreich@tum.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Tränckner, Jens</h3>
+    <p>Universität Rostock</p>
+    <a class="btn" href="mailto:jens.traenckner@uni-rostock.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Lerch, André</h3>
+    <p>TU Dresden</p>
+    <a class="btn" href="mailto:andre.lerch@tu-dresden.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Schaum, Christian</h3>
+    <p>UniBw München</p>
+    <a class="btn" href="mailto:christian.schaum@unibw.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Lange, Ruben-Laurids</h3>
+    <p>Uni Wuppertal</p>
+    <a class="btn" href="mailto:lange@uni-wuppertal.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Wichern, Marc</h3>
+    <p>Ruhr-Universität Bochum</p>
+    <a class="btn" href="mailto:marc.wichern@ruhr-uni-bochum.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Wintgens, Thomas</h3>
+    <p>RWTH Aachen</p>
+    <a class="btn" href="mailto:wintgens@isa.rwth-aachen.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Hellweger, Ferdi</h3>
+    <p>TU Berlin</p>
+    <a class="btn" href="mailto:ferdi.hellweger@tu-berlin.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Horn, Harald</h3>
+    <p>KIT Karlsruhe</p>
+    <a class="btn" href="mailto:harald.horn@kit.edu">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Lackner, Susanne</h3>
+    <p>TU Darmstadt</p>
+    <a class="btn" href="mailto:S.Lackner@iwar.tu-darmstadt.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Ernst, Mathias</h3>
+    <p>TU Hamburg</p>
+    <a class="btn" href="mailto:mathias.ernst@tuhh.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Morandi, Carlo</h3>
+    <p>RPTU Kaiserslautern</p>
+    <a class="btn" href="mailto:carlo.morandi@rptu.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Krause, Steffen</h3>
+    <p>UniBw München</p>
+    <a class="btn" href="mailto:steffen.krause@unibw.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Koch, Konrad</h3>
+    <p>TUM</p>
+    <a class="btn" href="mailto:k.koch@tum.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Kätzl, Korbinian</h3>
+    <p>Universität Kassel</p>
+    <a class="btn" href="mailto:kaetzl@uni-kassel.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Panglisch, Stefan</h3>
+    <p>Universität Duisburg-Essen</p>
+    <a class="btn" href="mailto:stefan.panglisch@uni-due.de">E-Mail</a>
+  </div>
+
+  <div class="card">
+    <img src="images/siwawiprodummy.jpg">
+    <h3>Prof. Dr. Widmann, Renatus</h3>
+    <p>Universität Duisburg-Essen</p>
+    <a class="btn" href="mailto:renatus.widmann@uni-due.de">E-Mail</a>
+  </div>
+
 </div>
 
 </body>
