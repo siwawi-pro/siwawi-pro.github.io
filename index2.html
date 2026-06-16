@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Standorte der SiWaWiPro-Institute</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  </head>
 <style>
 
 :root{
@@ -94,3 +108,193 @@ nav a:hover{
 }
 
 </style>
+<body>
+
+<h1>Standorte der SiWaWiPro-Institute</h1>
+
+<nav>
+  <a href="index.html">Start</a>
+  <a href="professor_innen.html">Professor*innen</a>
+  <a href="positionen.html">Positionen</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<div class="box">
+  <p>
+    Diese Karte zeigt alle Standorte der SiWaWiPro-Institute in Deutschland.
+  </p>
+</div>
+
+<div id="map"></div>
+
+<script>
+  // Karte initialisieren (Deutschland zentriert)
+  var map = L.map('map').setView([51.2, 10.4], 6);
+
+  // OpenStreetMap Layer
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Institute Marker
+
+   L.marker([53.45650, 9.96833]).addTo(map)
+  .bindPopup(`
+    <b>Technische Universität Hamburg TUHH</b><br>
+    Wasserressourcen und Wasserversorgung<br><br>
+    <a href="https://www.tuhh.de/wwv/startseite" target="_blank">
+      Zur Website des EBI
+    </a>
+  `);
+  
+  L.marker([52.38211, 9.71774]).addTo(map)
+  .bindPopup(`
+    <b>Leibniz Universität Hannover</b><br>
+    Institut für Siedlungswasserwirtschaft und Abfalltechnik (ISAH)<br><br>
+    <a href="https://www.isah.uni-hannover.de" target="_blank">
+      Zur Website des ISAH
+    </a>
+  `);
+
+   L.marker([48.1351, 11.5820]).addTo(map)
+  .bindPopup(`
+    <b>TU München</b><br>
+    Lehrstuhl und der Versuchsanstalt für Siedlungswasserwirtschaft<br><br>
+    <a href="https://www.cee.ed.tum.de/sww/startseite/" target="_blank">
+      Zur Website des ISAH
+    </a>
+  `);
+
+  L.marker([51.3236, 9.5007]).addTo(map)
+  .bindPopup(`
+    <b>Universität Kassel</b><br>
+    Fachgebiet Siedlungswasserwirtschaft<br><br>
+    <a href="https://www.uni-kassel.de/fb14bau/institute/institut-fuer-wasser-abfall-umwelt-iwau/siedlungswasserwirtschaft.html" target="_blank">
+      Zur Website des Fachgebietes
+    </a>
+  `);
+
+  L.marker([51.0288, 13.7274]).addTo(map)
+  .bindPopup(`
+    <b>TU Dresden</b><br>
+    Professur für Urban Water Management<br><br>
+    <a href="https://tu-dresden.de/bu/umwelt/hydro/isi/sww/die-professur" target="_blank">
+      Zur Website der Professur
+    </a>
+  `);
+
+  L.marker([50.7788, 6.0789]).addTo(map)
+  .bindPopup(`
+    <b>RWTH Aachen University</b><br>
+    Institut für Siedlungswasserwirtschaft (ISA)<br><br>
+    <a href="https://www.isa.rwth-aachen.de" target="_blank">
+      Zur Website des ISA
+    </a>
+  `);
+
+ L.marker([50.9807, 11.3293]).addTo(map)
+  .bindPopup(`
+    <b>Bauhaus Universität Weimar</b><br>
+    Professur Siedlungswasserwirtschaft und Technologien urbaner Stoffstromnutzungen<br><br>
+    <a href="https://www.uni-weimar.de/de/bau-und-umwelt/professuren/siedlungswasserwirtschaft/" target="_blank">
+      Zur Website der Professur
+    </a>
+  `);
+
+ L.marker([49.8728, 8.6512]).addTo(map)
+  .bindPopup(`
+    <b>TU Darmstadt</b><br>
+    Institut IWAR<br><br>
+    <a href="https://www.iwar.tu-darmstadt.de/iwarinstitut/" target="_blank">
+      Zur Website des IWAR
+    </a>
+  `);
+
+L.marker([52.2736, 10.5289]).addTo(map)
+  .bindPopup(`
+    <b>TU Braunschweig</b><br>
+    Institut für Siedlungswasserwirtschaft (ISWW)<br><br>
+    <a href="https://www.tu-braunschweig.de/isww" target="_blank">
+      Zur Website des ISWW
+    </a>
+  `);
+
+L.marker([54.0887, 12.1334]).addTo(map)
+  .bindPopup(`
+    <b>Universität Rostock</b><br>
+    Professur für Wasserwirtschaft (ISWW)<br><br>
+    <a href="https://www.auf.uni-rostock.de/professuren/bau-und-umweltbereich/wasserwirtschaft/" target="_blank">
+      Zur Website der Professur
+    </a>
+  `);
+
+L.marker([48.0812, 11.6406]).addTo(map)
+  .bindPopup(`
+    <b>Universität der Bundeswehr München</b><br>
+    Professur für Siedlungswasserwirtschaft und Abfalltechnik (SWA)<br><br>
+    <a href="https://www.unibw.de/wasserwesen/swa" target="_blank">
+      Zur Website der Professur
+    </a>
+  `);
+  
+L.marker([49.42483, 7.75246]).addTo(map)
+  .bindPopup(`
+    <b>RPTU Kaiserslautern Landau </b><br>
+    Wasser Infrastruktur Ressourcen (Institut) <br><br>
+    <a href="https://bauing.rptu.de/ags/wir" target="_blank">
+      Zur Website zum WIR
+    </a>
+  `);
+
+L.marker([51.4476, 7.2708]).addTo(map)
+  .bindPopup(`
+    <b>Ruhr-Universität Bochum</b><br>
+    Siedlungswasserwirtschaft und Umwelttechnik<br><br>
+    <a href="https://www.siwawi.ruhr-uni-bochum.de/siwawi" target="_blank">
+      Zur Website des Instituts
+    </a>
+  `);
+
+L.marker([52.5125, 13.3267]).addTo(map)
+  .bindPopup(`
+    <b>TU Berlin</b><br>
+    ITU - Fachgebiet Wasserreinhaltung<br><br>
+    <a href="https://www.tu.berlin/wrh" target="_blank">
+      Zur Website des Fachgebietes
+    </a>
+  `);
+
+L.marker([51.4649, 7.0067]).addTo(map)
+  .bindPopup(`
+    <b>Universität Duisburg-Essen</b><br>
+    Fachgebiet Siedlungswasser- und Abfallwirtschaft<br><br>
+    <a href="https://www.uni-due.de/siwawi/" target="_blank">
+      Zur Website des Fachgebietes
+    </a>
+  `);
+
+L.marker([51.2453, 7.1495]).addTo(map)
+  .bindPopup(`
+    <b>Bergische Universität Wuppertal</b><br>
+    Lehr- und Forschungsgebiet Siedlungswasserwirtschaft<br><br>
+    <a href="https://siwawi.uni-wuppertal.de/de/" target="_blank">
+      Zur Website des Fachgebietes
+    </a>
+  `);
+
+L.marker([49.0104, 8.4191]).addTo(map)
+  .bindPopup(`
+    <b>Karlsruher Institut für Technologie</b><br>
+    Engler-Bunte-Institut, Wasserchemie und Wassertechnologie<br><br>
+    <a href="https://wasserchemie.ebi.kit.edu/index.php" target="_blank">
+      Zur Website des EBI
+    </a>
+  `);
+
+
+
+</script>
+
+</body>
+</html>
