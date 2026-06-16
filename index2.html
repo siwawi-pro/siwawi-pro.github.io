@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiWaWiPro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0a6aa1;
+      --primary-dark: #07507a;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      background: white;
+      box-shadow: var(--shadow);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    header p {
+      margin: 5px 0 15px;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.2s;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .hero {
+      margin: 30px 0;
+      padding: 30px;
+      background: linear-gradient(135deg, var(--primary), #3aa0d8);
+      color: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero h2 {
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <h1>SiWaWiPro</h1>
+    <p>Gruppe der Professor*innen der universitären Siedlungswasserwirtschaft</p>
+
+    <nav>
+      <a href="#">Über uns</a>
+      <a href="professor_innen.html">Professor*innen</a>
+      <a href="institute.html">Institute</a>
+      <a href="positionen.html">Positionen</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <h2>Willkommen bei SiWaWiPro</h2>
+    <p>
+      Netzwerk der universitären Siedlungswasserwirtschaft zur Förderung von Forschung,
+      Lehre und Zusammenarbeit.
+    </p>
+  </section>
+
+  <div class="grid">
+
+    <section class="card">
+      <h2>Über uns</h2>
+      <p>
+        Die Professor*innengruppe Siedlungswasserwirtschaft hat das Ziel, Forschung und Lehre
+        zu koordinieren und die Vernetzung der Akteur*innen zu stärken.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Aktivitäten</h2>
+      <ul>
+        <li>Zusammenarbeit in Forschung & Lehre</li>
+        <li>Netzwerk- und Institutskooperation</li>
+        <li>Entwicklung von Forschungsthemen</li>
+        <li>Forschungsdaten-Management</li>
+        <li>Kommunikation gemeinsamer Ergebnisse</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Gruppensprecher</h2>
+      <p>
+        Amtsperiode 2026–2028:<br>
+        Prof. Dr.-Ing. Stephan Köster (Leibniz Universität Hannover)<br>
+        Prof. Dr.-Ing. Tobias Morck (Universität Kassel)
+      </p>
+      <p>
+        E-Mail:<br>
+        koester@isah.uni-hannover.de<br>
+        morck@uni-kassel.de
+      </p>
+    </section>
+
+  </div>
+
+</div>
+
+<footer>
+  © SiWaWiPro 2026
+</footer>
+
+</body>
+</html>
