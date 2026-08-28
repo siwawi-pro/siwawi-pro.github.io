@@ -1,1 +1,1916 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Standorte der SiWaWiPro-Institute</title>
+
+<link rel="icon" href="favicon.png" type="image/png">
+
+<!-- Schrift -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<!-- Leaflet -->
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<style>
+
+/* =========================================================
+   FARBEN
+========================================================= */
+
+:root {
+
+    --blau-dunkel: #073B5C;
+    --blau: #087EA4;
+    --blau-hell: #18B6D0;
+
+    --hintergrund: #F4FAFC;
+    --hellblau: #E8F6FA;
+
+    --text: #18303D;
+    --text-hell: #647985;
+
+    --weiss: #FFFFFF;
+
+    --linie: #D8EAF0;
+}
+
+
+/* =========================================================
+   GRUNDLAYOUT
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--text);
+
+    background: var(--hintergrund);
+
+    line-height: 1.7;
+}
+
+
+.container {
+
+    width: min(1080px, calc(100% - 40px));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    background: white;
+
+    border-bottom:
+        1px solid var(--linie);
+}
+
+
+.header-inner {
+
+    min-height: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    display: block;
+
+    width: 145px;
+}
+
+
+.logo img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+nav a {
+
+    position: relative;
+
+    padding: 9px 12px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 0.88rem;
+
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+
+    bottom: 2px;
+
+    height: 2px;
+
+    background: var(--blau-hell);
+
+    transform:
+        scaleX(0);
+
+    transform-origin: left;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+nav a:hover {
+
+    color: var(--blau);
+}
+
+
+nav a:hover::after {
+
+    transform:
+        scaleX(1);
+}
+
+
+/* Aktiver Menüpunkt */
+
+nav a.active {
+
+    color: var(--blau);
+}
+
+
+nav a.active::after {
+
+    transform:
+        scaleX(1);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        70px 0 125px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #FFFFFF 0%,
+            #F2FAFC 65%,
+            #E5F6FA 100%
+        );
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 760px;
+}
+
+
+.kicker {
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: var(--blau);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.10em;
+
+    text-transform: uppercase;
+}
+
+
+h1 {
+
+    margin: 0;
+
+    color: var(--blau-dunkel);
+
+    font-size:
+        clamp(2.5rem, 5vw, 4rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.05em;
+}
+
+
+h1 span {
+
+    color: var(--blau);
+}
+
+
+.hero p {
+
+    max-width: 680px;
+
+    margin:
+        22px 0 0;
+
+    color: var(--text-hell);
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   DEZENTE WASSERLINIEN IM HERO
+========================================================= */
+
+.hero-water {
+
+    position: absolute;
+
+    right: -40px;
+
+    bottom: 20px;
+
+    width: 480px;
+
+    height: 170px;
+
+    opacity: 0.8;
+
+    pointer-events: none;
+}
+
+
+.hero-water span {
+
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 65px;
+
+    border-top:
+        2px solid rgba(8,126,164,0.16);
+
+    border-radius: 50%;
+
+    transform: rotate(-5deg);
+}
+
+
+.hero-water span:nth-child(1) {
+
+    top: 15px;
+}
+
+
+.hero-water span:nth-child(2) {
+
+    top: 55px;
+
+    left: 35px;
+
+    width: 90%;
+}
+
+
+.hero-water span:nth-child(3) {
+
+    top: 95px;
+
+    left: -20px;
+
+    width: 95%;
+}
+
+
+.hero-water span:nth-child(4) {
+
+    top: 135px;
+
+    left: 45px;
+
+    width: 80%;
+}
+
+
+/* =========================================================
+   WELLE
+========================================================= */
+
+.hero-wave {
+
+    position: absolute;
+
+    bottom: -1px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 80px;
+}
+
+
+.hero-wave svg {
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+.hero-wave path {
+
+    fill:
+        var(--hintergrund);
+}
+
+
+/* =========================================================
+   STATISTIKEN
+========================================================= */
+
+.stats {
+
+    margin-top: -48px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.stats-inner {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    background: white;
+
+    border:
+        1px solid var(--linie);
+
+    box-shadow:
+        0 10px 35px rgba(7,59,92,0.08);
+}
+
+
+.stat {
+
+    padding:
+        25px 20px;
+
+    text-align: center;
+
+    border-right:
+        1px solid var(--linie);
+}
+
+
+.stat:last-child {
+
+    border-right: 0;
+}
+
+
+.stat-number {
+
+    display: block;
+
+    color: var(--blau);
+
+    font-size: 2rem;
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+.stat-label {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--blau-dunkel);
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+
+    padding:
+        75px 0 90px;
+}
+
+
+.section-heading {
+
+    max-width: 720px;
+
+    margin-bottom: 30px;
+}
+
+
+.section-heading small {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--blau);
+
+    font-size: 0.73rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.10em;
+
+    text-transform: uppercase;
+}
+
+
+.section-heading h2 {
+
+    margin: 0;
+
+    color: var(--blau-dunkel);
+
+    font-size:
+        clamp(2rem, 4vw, 3rem);
+
+    line-height: 1.15;
+
+    letter-spacing: -0.04em;
+}
+
+
+.section-heading p {
+
+    margin-top: 13px;
+
+    color: var(--text-hell);
+}
+
+
+/* =========================================================
+   KARTENBEREICH
+========================================================= */
+
+.map-wrapper {
+
+    padding: 10px;
+
+    background: white;
+
+    border:
+        1px solid var(--linie);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(7,59,92,0.08);
+}
+
+
+#map {
+
+    height: 610px;
+
+    width: 100%;
+
+    border-radius: 9px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   LEAFLET DESIGN
+========================================================= */
+
+.leaflet-container {
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    background:
+        #EAF5F8;
+}
+
+
+.leaflet-control-zoom {
+
+    border:
+        1px solid var(--linie) !important;
+
+    box-shadow:
+        0 3px 12px rgba(7,59,92,0.12) !important;
+}
+
+
+.leaflet-control-zoom a {
+
+    color:
+        var(--blau-dunkel) !important;
+
+    background:
+        white !important;
+
+    border-bottom:
+        1px solid var(--linie) !important;
+}
+
+
+.leaflet-control-zoom a:hover {
+
+    color:
+        var(--blau) !important;
+
+    background:
+        var(--hellblau) !important;
+}
+
+
+.leaflet-popup-content-wrapper {
+
+    border-radius:
+        10px;
+
+    box-shadow:
+        0 8px 25px rgba(7,59,92,0.15);
+}
+
+
+.leaflet-popup-content {
+
+    margin:
+        16px 18px;
+
+    line-height:
+        1.55;
+
+    color:
+        var(--text);
+
+    font-size:
+        0.84rem;
+}
+
+
+.leaflet-popup-content b {
+
+    display: block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--blau-dunkel);
+
+    font-size:
+        0.95rem;
+}
+
+
+.leaflet-popup-content a {
+
+    display: inline-block;
+
+    margin-top:
+        8px;
+
+    color:
+        var(--blau);
+
+    font-weight:
+        600;
+
+    text-decoration:
+        none;
+}
+
+
+.leaflet-popup-content a:hover {
+
+    text-decoration:
+        underline;
+}
+
+
+/* =========================================================
+   HINWEIS UNTER KARTE
+========================================================= */
+
+.map-note {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 20px;
+
+    padding:
+        18px 20px;
+
+    background:
+        var(--hellblau);
+
+    border-radius:
+        9px;
+
+    color:
+        var(--text-hell);
+
+    font-size:
+        0.82rem;
+}
+
+
+.map-note-icon {
+
+    flex:
+        0 0 auto;
+
+    width:
+        36px;
+
+    height:
+        36px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    color:
+        white;
+
+    background:
+        var(--blau);
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    margin-top:
+        0;
+
+    padding:
+        45px 0;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    background:
+        #052D47;
+}
+
+
+.footer-inner {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+}
+
+
+.footer-logo {
+
+    width:
+        145px;
+
+    filter:
+        brightness(0) invert(1);
+
+    margin-bottom:
+        8px;
+}
+
+
+.footer-text {
+
+    font-size:
+        0.76rem;
+}
+
+
+.footer-right {
+
+    text-align:
+        right;
+}
+
+
+.footer-right a {
+
+    color:
+        white;
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        600;
+}
+
+
+.footer-right a:hover {
+
+    color:
+        var(--blau-hell);
+}
+
+
+.copyright {
+
+    margin-top:
+        8px;
+
+    font-size:
+        0.72rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+
+    .header-inner {
+
+        flex-direction:
+            column;
+
+        padding:
+            20px 0;
+    }
+
+
+    nav {
+
+        width:
+            100%;
+
+        justify-content:
+            center;
+
+        flex-wrap:
+            wrap;
+    }
+
+
+    .hero {
+
+        padding:
+            60px 0 115px;
+    }
+
+
+    .hero-water {
+
+        right:
+            -150px;
+
+        opacity:
+            0.45;
+    }
+
+
+    .stats-inner {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .stat:nth-child(2) {
+
+        border-right:
+            0;
+    }
+
+
+    .stat:nth-child(-n+2) {
+
+        border-bottom:
+            1px solid var(--linie);
+    }
+
+
+    .stat:last-child {
+
+        grid-column:
+            1 / -1;
+
+        border-right:
+            0;
+    }
+
+
+    #map {
+
+        height:
+            520px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+
+    .container {
+
+        width:
+            calc(100% - 28px);
+    }
+
+
+    nav {
+
+        justify-content:
+            flex-start;
+
+        overflow-x:
+            auto;
+
+        flex-wrap:
+            nowrap;
+
+        padding-bottom:
+            5px;
+    }
+
+
+    nav a {
+
+        white-space:
+            nowrap;
+
+        font-size:
+            0.78rem;
+    }
+
+
+    .hero {
+
+        padding:
+            50px 0 105px;
+    }
+
+
+    h1 {
+
+        font-size:
+            2.7rem;
+    }
+
+
+    .hero p {
+
+        font-size:
+            0.92rem;
+    }
+
+
+    .hero-water {
+
+        display:
+            none;
+    }
+
+
+    .stats {
+
+        margin-top:
+            -35px;
+    }
+
+
+    .stat {
+
+        padding:
+            20px 10px;
+    }
+
+
+    .stat-number {
+
+        font-size:
+            1.6rem;
+    }
+
+
+    .stat-label {
+
+        font-size:
+            0.72rem;
+    }
+
+
+    .content {
+
+        padding:
+            60px 0 70px;
+    }
+
+
+    .map-wrapper {
+
+        padding:
+            6px;
+
+        border-radius:
+            10px;
+    }
+
+
+    #map {
+
+        height:
+            470px;
+
+        border-radius:
+            6px;
+    }
+
+
+    .map-note {
+
+        align-items:
+            flex-start;
+
+        font-size:
+            0.76rem;
+    }
+
+
+    .footer-inner {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .footer-right {
+
+        text-align:
+            left;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container">
+
+<div class="header-inner">
+
+<a href="index.html" class="logo">
+
+<img
+ src="images/logosiwawipro.png"
+ alt="SiWaWiPro Logo">
+
+</a>
+
+<nav>
+
+<a href="index.html">
+    Über uns
+</a>
+
+<a href="professor_innen.html">
+    Professor*innen
+</a>
+
+<a href="institute.html" class="active">
+    Institute
+</a>
+
+<a href="positionen.html">
+    Positionen
+</a>
+
+<a href="kontakt.html">
+    Kontakt
+</a>
+
+</nav>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<span class="kicker">
+    SiWaWiPro · Institute
+</span>
+
+<h1>
+
+Gemeinsam in der<br>
+
+<span>Siedlungswasserwirtschaft.</span>
+
+</h1>
+
+<p>
+
+Die SiWaWiPro-Institute bilden ein bundesweites
+Netzwerk universitärer Forschung und Lehre.
+Die Karte zeigt die Standorte unserer beteiligten
+Institute und Fachgebiete.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Dezente Wasserlinien -->
+
+<div class="hero-water">
+
+<span></span> <span></span> <span></span> <span></span>
+
+</div>
+
+<!-- Welle -->
+
+<div class="hero-wave">
+
+<svg
+ viewBox="0 0 1440 120"
+ preserveAspectRatio="none"
+ xmlns="http://www.w3.org/2000/svg">
+
+<path d="
+M0,70
+C180,25 300,110 500,70
+C700,30 800,95 1000,58
+C1190,20 1310,70 1440,35
+L1440,120
+L0,120
+Z"> </path>
+
+</svg>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     STATISTIKEN
+===================================================== -->
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stats-inner">
+
+<div class="stat">
+
+<span class="stat-number">
+    17
+</span>
+
+<span class="stat-label">
+    Institute & Fachgebiete
+</span>
+
+</div>
+
+<div class="stat">
+
+<span class="stat-number">
+    16
+</span>
+
+<span class="stat-label">
+    Hochschulstandorte
+</span>
+
+</div>
+
+<div class="stat">
+
+<span class="stat-number">
+    DE
+</span>
+
+<span class="stat-label">
+    bundesweites Netzwerk
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     INHALT
+===================================================== -->
+
+<main class="content">
+
+<div class="container">
+
+<div class="section-heading">
+
+<small>
+    Standorte
+</small>
+
+<h2>
+    Universitäre Kompetenz
+    auf einen Blick.
+</h2>
+
+<p>
+
+Die Karte gibt einen Überblick über die Standorte
+der SiWaWiPro-Institute in Deutschland. Über einen
+Marker können Sie weitere Informationen zum jeweiligen
+Institut sowie einen direkten Link zur Institutswebsite
+aufrufen.
+
+</p>
+
+</div>
+
+<!-- =====================================================
+     KARTE
+===================================================== -->
+
+<div class="map-wrapper">
+
+<div id="map"></div>
+
+</div>
+
+<div class="map-note">
+
+<div class="map-note-icon">
+    i
+</div>
+
+<div>
+
+<strong>
+    Hinweis:
+</strong>
+
+Die Marker öffnen beim Anklicken ein Informationsfenster
+mit dem Namen des Instituts, dem jeweiligen Fachgebiet
+und einem Link zur entsprechenden Hochschulseite.
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-inner">
+
+<div>
+
+<img
+ class="footer-logo"
+ src="images/logosiwawipro.png"
+ alt="SiWaWiPro">
+
+<div class="footer-text">
+
+Universitäre Siedlungswasserwirtschaft
+
+</div>
+
+</div>
+
+<div class="footer-right">
+
+<a
+ href="https://www.linkedin.com/company/siwawipro"
+ target="_blank"
+ rel="noopener noreferrer">
+
+```
+LinkedIn
+```
+
+</a>
+
+<div class="copyright">
+
+© SiWaWiPro 2026
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- =====================================================
+     LEAFLET KARTE
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   KARTE INITIALISIEREN
+===================================================== */
+
+var map = L.map('map', {
+
+    scrollWheelZoom: true
+
+}).setView(
+
+    [51.2, 10.4],
+
+    6
+
+);
+
+
+
+/* =====================================================
+   OPENSTREETMAP
+===================================================== */
+
+L.tileLayer(
+
+    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+    {
+
+        maxZoom: 18,
+
+        attribution:
+            '&copy; OpenStreetMap contributors'
+
+    }
+
+).addTo(map);
+
+
+
+/* =====================================================
+   MARKER
+===================================================== */
+
+
+/* TU Hamburg */
+
+L.marker([53.45650, 9.96833])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Technische Universität Hamburg TUHH
+        </b>
+
+        Wasserressourcen und Wasserversorgung
+
+        <br><br>
+
+        <a
+            href="https://www.tuhh.de/wwv/startseite"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des EBI →
+
+        </a>
+
+    `);
+
+
+
+/* Leibniz Universität Hannover */
+
+L.marker([52.38211, 9.71774])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Leibniz Universität Hannover
+        </b>
+
+        Institut für Siedlungswasserwirtschaft
+        und Abfalltechnik (ISAH)
+
+        <br><br>
+
+        <a
+            href="https://www.isah.uni-hannover.de"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des ISAH →
+
+        </a>
+
+    `);
+
+
+
+/* TU München */
+
+L.marker([48.1351, 11.5820])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            TU München
+        </b>
+
+        Lehrstuhl und Versuchsanstalt
+        für Siedlungswasserwirtschaft
+
+        <br><br>
+
+        <a
+            href="https://www.cee.ed.tum.de/sww/startseite/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website der Professur →
+
+        </a>
+
+    `);
+
+
+
+/* Universität Kassel */
+
+L.marker([51.3236, 9.5007])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Universität Kassel
+        </b>
+
+        Fachgebiet Siedlungswasserwirtschaft
+
+        <br><br>
+
+        <a
+            href="https://www.uni-kassel.de/fb14bau/institute/institut-fuer-wasser-abfall-umwelt-iwau/siedlungswasserwirtschaft.html"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des Fachgebietes →
+
+        </a>
+
+    `);
+
+
+
+/* TU Dresden */
+
+L.marker([51.0288, 13.7274])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            TU Dresden
+        </b>
+
+        Professur für Urban Water Management
+
+        <br><br>
+
+        <a
+            href="https://tu-dresden.de/bu/umwelt/hydro/isi/sww/die-professur"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website der Professur →
+
+        </a>
+
+    `);
+
+
+
+/* RWTH Aachen */
+
+L.marker([50.7788, 6.0789])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            RWTH Aachen University
+        </b>
+
+        Institut für Siedlungswasserwirtschaft (ISA)
+
+        <br><br>
+
+        <a
+            href="https://www.isa.rwth-aachen.de"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des ISA →
+
+        </a>
+
+    `);
+
+
+
+/* Bauhaus Universität Weimar */
+
+L.marker([50.9807, 11.3293])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Bauhaus Universität Weimar
+        </b>
+
+        Professur Siedlungswasserwirtschaft
+        und Technologien urbaner Stoffstromnutzungen
+
+        <br><br>
+
+        <a
+            href="https://www.uni-weimar.de/de/bau-und-umwelt/professuren/siedlungswasserwirtschaft/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website der Professur →
+
+        </a>
+
+    `);
+
+
+
+/* TU Darmstadt */
+
+L.marker([49.8728, 8.6512])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            TU Darmstadt
+        </b>
+
+        Institut IWAR
+
+        <br><br>
+
+        <a
+            href="https://www.iwar.tu-darmstadt.de/iwarinstitut/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des IWAR →
+
+        </a>
+
+    `);
+
+
+
+/* TU Braunschweig */
+
+L.marker([52.2736, 10.5289])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            TU Braunschweig
+        </b>
+
+        Institut für Siedlungswasserwirtschaft (ISWW)
+
+        <br><br>
+
+        <a
+            href="https://www.tu-braunschweig.de/isww"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des ISWW →
+
+        </a>
+
+    `);
+
+
+
+/* Universität Rostock */
+
+L.marker([54.0887, 12.1334])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Universität Rostock
+        </b>
+
+        Professur für Wasserwirtschaft (ISWW)
+
+        <br><br>
+
+        <a
+            href="https://www.auf.uni-rostock.de/professuren/bau-und-umweltbereich/wasserwirtschaft/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website der Professur →
+
+        </a>
+
+    `);
+
+
+
+/* Universität der Bundeswehr München */
+
+L.marker([48.0812, 11.6406])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Universität der Bundeswehr München
+        </b>
+
+        Professur für Siedlungswasserwirtschaft
+        und Abfalltechnik (SWA)
+
+        <br><br>
+
+        <a
+            href="https://www.unibw.de/wasserwesen/swa"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website der Professur →
+
+        </a>
+
+    `);
+
+
+
+/* RPTU Kaiserslautern-Landau */
+
+L.marker([49.42483, 7.75246])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            RPTU Kaiserslautern-Landau
+        </b>
+
+        Wasser Infrastruktur Ressourcen (WIR)
+
+        <br><br>
+
+        <a
+            href="https://bauing.rptu.de/ags/wir"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des WIR →
+
+        </a>
+
+    `);
+
+
+
+/* Ruhr-Universität Bochum */
+
+L.marker([51.4476, 7.2708])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Ruhr-Universität Bochum
+        </b>
+
+        Siedlungswasserwirtschaft
+        und Umwelttechnik
+
+        <br><br>
+
+        <a
+            href="https://www.siwawi.ruhr-uni-bochum.de/siwawi"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des Instituts →
+
+        </a>
+
+    `);
+
+
+
+/* TU Berlin */
+
+L.marker([52.5125, 13.3267])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            TU Berlin
+        </b>
+
+        ITU – Fachgebiet Wasserreinhaltung
+
+        <br><br>
+
+        <a
+            href="https://www.tu.berlin/wrh"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des Fachgebietes →
+
+        </a>
+
+    `);
+
+
+
+/* Universität Duisburg-Essen */
+
+L.marker([51.4649, 7.0067])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Universität Duisburg-Essen
+        </b>
+
+        Fachgebiet Siedlungswasser-
+        und Abfallwirtschaft
+
+        <br><br>
+
+        <a
+            href="https://www.uni-due.de/siwawi/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des Fachgebietes →
+
+        </a>
+
+    `);
+
+
+
+/* Bergische Universität Wuppertal */
+
+L.marker([51.2453, 7.1495])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Bergische Universität Wuppertal
+        </b>
+
+        Lehr- und Forschungsgebiet
+        Siedlungswasserwirtschaft
+
+        <br><br>
+
+        <a
+            href="https://siwawi.uni-wuppertal.de/de/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des Fachgebietes →
+
+        </a>
+
+    `);
+
+
+
+/* Karlsruher Institut für Technologie */
+
+L.marker([49.0104, 8.4191])
+    .addTo(map)
+    .bindPopup(`
+
+        <b>
+            Karlsruher Institut für Technologie
+        </b>
+
+        Engler-Bunte-Institut,
+        Wasserchemie und Wassertechnologie
+
+        <br><br>
+
+        <a
+            href="https://wasserchemie.ebi.kit.edu/index.php"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Zur Website des EBI →
+
+        </a>
+
+    `);
+
+
+
+</script>
+
+</body>
+
+</html>
 
