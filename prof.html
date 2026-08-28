@@ -1,1 +1,1452 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professor*innen – SiWaWiPro</title>
+
+<link rel="icon" href="favicon.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   FARBEN
+========================================================= */
+
+:root {
+
+    --blau-dunkel: #073B5C;
+    --blau: #087EA4;
+    --blau-hell: #18B6D0;
+
+    --hintergrund: #F4FAFC;
+    --hellblau: #E8F6FA;
+
+    --text: #18303D;
+    --text-hell: #647985;
+
+    --weiss: #FFFFFF;
+
+    --linie: #D8EAF0;
+}
+
+
+/* =========================================================
+   GRUNDLAYOUT
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--text);
+
+    background: var(--hintergrund);
+
+    line-height: 1.7;
+}
+
+.container {
+
+    width: min(1080px, calc(100% - 40px));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    background: white;
+
+    border-bottom:
+        1px solid var(--linie);
+}
+
+.header-inner {
+
+    min-height: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    display: block;
+
+    width: 145px;
+}
+
+.logo img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+nav a {
+
+    position: relative;
+
+    padding: 9px 12px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 0.88rem;
+
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+
+    bottom: 2px;
+
+    height: 2px;
+
+    background: var(--blau-hell);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform 0.2s ease;
+}
+
+nav a:hover {
+
+    color: var(--blau);
+}
+
+nav a:hover::after,
+nav a.active::after {
+
+    transform: scaleX(1);
+}
+
+nav a.active {
+
+    color: var(--blau);
+}
+
+
+/* =========================================================
+   SEITEN-INTRO
+========================================================= */
+
+.page-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        75px 0 85px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #FFFFFF 0%,
+            #F2FAFC 65%,
+            #E5F6FA 100%
+        );
+}
+
+.page-hero-inner {
+
+    max-width: 760px;
+}
+
+.kicker {
+
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--blau);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.10em;
+
+    text-transform: uppercase;
+}
+
+.page-hero h1 {
+
+    margin: 0;
+
+    color: var(--blau-dunkel);
+
+    font-size:
+        clamp(2.4rem, 5vw, 4rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.05em;
+}
+
+.page-hero h1 span {
+
+    color: var(--blau);
+}
+
+.page-hero p {
+
+    max-width: 680px;
+
+    margin:
+        22px 0 0;
+
+    color: var(--text-hell);
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+
+    padding:
+        80px 0 90px;
+}
+
+.section-heading {
+
+    max-width: 720px;
+
+    margin-bottom: 40px;
+}
+
+.section-heading small {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--blau);
+
+    font-size: 0.73rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.10em;
+
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+
+    margin: 0;
+
+    color: var(--blau-dunkel);
+
+    font-size:
+        clamp(2rem, 4vw, 3rem);
+
+    line-height: 1.15;
+
+    letter-spacing: -0.04em;
+}
+
+.section-heading p {
+
+    margin-top: 15px;
+
+    color: var(--text-hell);
+}
+
+
+/* =========================================================
+   PROFESSOR*INNEN-KARTEN
+========================================================= */
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 16px;
+
+    background: white;
+
+    border:
+        1px solid var(--linie);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(7,59,92,0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(7,59,92,0.08);
+}
+
+.card img {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 9px;
+
+    background: var(--hellblau);
+
+    display: block;
+}
+
+.card h3 {
+
+    margin:
+        18px 4px 5px;
+
+    color: var(--blau-dunkel);
+
+    font-size: 1rem;
+
+    line-height: 1.4;
+}
+
+.card p {
+
+    margin:
+        0 4px;
+
+    color: var(--text-hell);
+
+    font-size: 0.84rem;
+}
+
+.btn {
+
+    display: inline-block;
+
+    align-self: flex-start;
+
+    margin:
+        14px 4px 4px;
+
+    padding:
+        8px 13px;
+
+    border-radius: 6px;
+
+    color: white;
+
+    background: var(--blau-dunkel);
+
+    text-decoration: none;
+
+    font-size: 0.78rem;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn:hover {
+
+    background: var(--blau);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    margin-top: 20px;
+
+    padding:
+        45px 0;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    background:
+        #052D47;
+}
+
+.footer-inner {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.footer-logo {
+
+    width: 145px;
+
+    filter:
+        brightness(0) invert(1);
+
+    margin-bottom: 8px;
+}
+
+.footer-text {
+
+    font-size: 0.76rem;
+}
+
+.footer-right {
+
+    text-align: right;
+}
+
+.footer-right a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+}
+
+.footer-right a:hover {
+
+    color:
+        var(--blau-hell);
+}
+
+.copyright {
+
+    margin-top: 8px;
+
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .header-inner {
+
+        flex-direction: column;
+
+        padding:
+            20px 0;
+    }
+
+    nav {
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .page-hero {
+
+        padding:
+            60px 0 70px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+
+        width:
+            calc(100% - 28px);
+    }
+
+    nav {
+
+        justify-content:
+            flex-start;
+
+        overflow-x:
+            auto;
+
+        flex-wrap:
+            nowrap;
+
+        padding-bottom:
+            5px;
+    }
+
+    nav a {
+
+        white-space:
+            nowrap;
+
+        font-size:
+            0.78rem;
+    }
+
+    .page-hero {
+
+        padding:
+            50px 0 60px;
+    }
+
+    .page-hero h1 {
+
+        font-size:
+            2.7rem;
+    }
+
+    .page-hero p {
+
+        font-size:
+            0.95rem;
+    }
+
+    .content {
+
+        padding:
+            60px 0 70px;
+    }
+
+    .grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 18px;
+    }
+
+    .card img {
+
+        height:
+            260px;
+    }
+
+    .footer-inner {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+    .footer-right {
+
+        text-align:
+            left;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container">
+
+<div class="header-inner">
+
+<a href="index.html" class="logo">
+
+<img
+ src="images/logosiwawipro.png"
+ alt="SiWaWiPro Logo">
+
+</a>
+
+<nav>
+
+<a href="index.html">
+    Über uns
+</a>
+
+<a href="professor_innen.html" class="active">
+    Professor*innen
+</a>
+
+<a href="institute.html">
+    Institute
+</a>
+
+<a href="positionen.html">
+    Positionen
+</a>
+
+<a href="kontakt.html">
+    Kontakt
+</a>
+
+</nav>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     SEITEN-INTRO
+===================================================== -->
+
+<section class="page-hero">
+
+<div class="container">
+
+<div class="page-hero-inner">
+
+<span class="kicker">
+    SiWaWiPro
+</span>
+
+<h1>
+
+Professor*innen<br>
+
+<span>der Siedlungswasserwirtschaft.</span>
+
+</h1>
+
+<p>
+
+Die Professor*innengruppe SiWaWiPro verbindet
+universitäre Einrichtungen der Siedlungswasserwirtschaft
+und fördert den wissenschaftlichen Austausch,
+gemeinsame Forschung und die universitäre Lehre.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     PROFESSOR*INNEN
+===================================================== -->
+
+<main class="content">
+
+<div class="container">
+
+<div class="section-heading">
+
+<small>
+    Mitglieder
+</small>
+
+<h2>
+    Professor*innen vertreten in SiWaWiPro
+</h2>
+
+<p>
+    Eine Übersicht der Professor*innen und ihrer
+    universitären Einrichtungen.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<img
+ src="images/beier.jpg"
+ alt="Prof. Dr. Beier, Silvio">
+
+<h3>
+    Prof. Dr. Beier, Silvio
+</h3>
+
+<p>
+    Bauhaus Universität Weimar
+</p>
+
+<a
+ class="btn"
+ href="mailto:silvio.beier@uni-weimar.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/dittmer.jpg"
+ alt="Prof. Dr. Dittmer, Ulrich">
+
+<h3>
+    Prof. Dr. Dittmer, Ulrich
+</h3>
+
+<p>
+    RPTU
+</p>
+
+<a
+ class="btn"
+ href="mailto:ulrich.dittmer@rptu.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/dockhorn.jpg"
+ alt="Prof. Dr. Dockhorn, Thomas">
+
+<h3>
+    Prof. Dr. Dockhorn, Thomas
+</h3>
+
+<p>
+    TU Braunschweig
+</p>
+
+<a
+ class="btn"
+ href="mailto:t.dockhorn@tu-braunschweig.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/drewes.jpg"
+ alt="Prof. Dr. Drewes, Jörg E.">
+
+<h3>
+    Prof. Dr. Drewes, Jörg E.
+</h3>
+
+<p>
+    TUM
+</p>
+
+<a
+ class="btn"
+ href="mailto:jdrewes@tum.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/engelhardt.jpg"
+ alt="Prof. Dr. Engelhart, Markus">
+
+<h3>
+    Prof. Dr. Engelhart, Markus
+</h3>
+
+<p>
+    TU Darmstadt
+</p>
+
+<a
+ class="btn"
+ href="mailto:m.engelhart@iwar.tu-darmstadt.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/ernst.jpg"
+ alt="Prof. Dr. Ernst, Mathias">
+
+<h3>
+    Prof. Dr. Ernst, Mathias
+</h3>
+
+<p>
+    TU Hamburg
+</p>
+
+<a
+ class="btn"
+ href="mailto:mathias.ernst@tuhh.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/hellweger.jpg"
+ alt="Prof. Dr. Hellweger, Ferdi">
+
+<h3>
+    Prof. Dr. Hellweger, Ferdi
+</h3>
+
+<p>
+    TU Berlin
+</p>
+
+<a
+ class="btn"
+ href="mailto:ferdi.hellweger@tu-berlin.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/helmreich.jpg"
+ alt="Prof. Dr. Helmreich, Brigitte">
+
+<h3>
+    Prof. Dr. Helmreich, Brigitte
+</h3>
+
+<p>
+    TUM
+</p>
+
+<a
+ class="btn"
+ href="mailto:b.helmreich@tum.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/horn.jpg"
+ alt="Prof. Dr. Horn, Harald">
+
+<h3>
+    Prof. Dr. Horn, Harald
+</h3>
+
+<p>
+    KIT- EBI
+</p>
+
+<a
+ class="btn"
+ href="mailto:harald.horn@kit.edu">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/kaetzl.jpg"
+ alt="Prof. Dr. Kätzl, Korbinian">
+
+<h3>
+    Prof. Dr. Kätzl, Korbinian
+</h3>
+
+<p>
+    TU Dresden
+</p>
+
+<a
+ class="btn"
+ href="mailto:korbinian.kaetzl@tu-dresden.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/koch.jpg"
+ alt="Prof. Dr. Koch, Konrad">
+
+<h3>
+    Prof. Dr. Koch, Konrad
+</h3>
+
+<p>
+    TUM
+</p>
+
+<a
+ class="btn"
+ href="mailto:k.koch@tum.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/koester.jpg"
+ alt="Prof. Dr. Köster, Stephan">
+
+<h3>
+    Prof. Dr. Köster, Stephan
+</h3>
+
+<p>
+    Leibniz Universität Hannover
+</p>
+
+<a
+ class="btn"
+ href="mailto:koester@isah.uni-hannover.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/krause.jpg"
+ alt="Prof. Dr. Krause, Steffen">
+
+<h3>
+    Prof. Dr. Krause, Steffen
+</h3>
+
+<p>
+    UniBw München
+</p>
+
+<a
+ class="btn"
+ href="mailto:steffen.krause@unibw.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/lackner.jpg"
+ alt="Prof. Dr. Lackner, Susanne">
+
+<h3>
+    Prof. Dr. Lackner, Susanne
+</h3>
+
+<p>
+    TU Darmstadt
+</p>
+
+<a
+ class="btn"
+ href="mailto:S.Lackner@iwar.tu-darmstadt.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/lange.jpg"
+ alt="Prof. Dr. Lange, Ruben-Laurids">
+
+<h3>
+    Prof. Dr. Lange, Ruben-Laurids
+</h3>
+
+<p>
+    Uni Wuppertal
+</p>
+
+<a
+ class="btn"
+ href="mailto:lange@uni-wuppertal.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/lerch.jpg"
+ alt="Prof. Dr. Lerch, Andre">
+
+<h3>
+    Prof. Dr. Lerch, Andre
+</h3>
+
+<p>
+    TU Dresden
+</p>
+
+<a
+ class="btn"
+ href="mailto:andre.lerch@tu-dresden.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/morandi.jpg"
+ alt="Prof. Dr. Morandi, Carlo">
+
+<h3>
+    Prof. Dr. Morandi, Carlo
+</h3>
+
+<p>
+    RPTU
+</p>
+
+<a
+ class="btn"
+ href="mailto:carlo.morandi@rptu.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/morck.jpg"
+ alt="Prof. Dr. Morck, Tobias">
+
+<h3>
+    Prof. Dr. Morck, Tobias
+</h3>
+
+<p>
+    Universität Kassel
+</p>
+
+<a
+ class="btn"
+ href="mailto:morck@uni-kassel.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/panglisch.jpg"
+ alt="Prof. Dr. Panglisch, Stefan">
+
+<h3>
+    Prof. Dr. Panglisch, Stefan
+</h3>
+
+<p>
+    Uni Duisburg-Essen
+</p>
+
+<a
+ class="btn"
+ href="mailto:stefan.panglisch@uni-due.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/schaum.jpg"
+ alt="Prof. Dr. Schaum, Christian">
+
+<h3>
+    Prof. Dr. Schaum, Christian
+</h3>
+
+<p>
+    UniBw München
+</p>
+
+<a
+ class="btn"
+ href="mailto:christian.schaum@unibw.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/steinmetz.jpg"
+ alt="Prof. Dr. Steinmetz, Heidrun">
+
+<h3>
+    Prof. Dr. Steinmetz, Heidrun
+</h3>
+
+<p>
+    RPTU
+</p>
+
+<a
+ class="btn"
+ href="mailto:heidrun.steinmetz@rptu.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/traenckner.jpg"
+ alt="Prof. Dr. Tränckner, Jens">
+
+<h3>
+    Prof. Dr. Tränckner, Jens
+</h3>
+
+<p>
+    Uni Rostock
+</p>
+
+<a
+ class="btn"
+ href="mailto:jens.traenckner@uni-rostock.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/widmann.jpg"
+ alt="Prof. Dr. Widmann, Renatus">
+
+<h3>
+    Prof. Dr. Widmann, Renatus
+</h3>
+
+<p>
+    Uni Duisburg-Essen
+</p>
+
+<a
+ class="btn"
+ href="mailto:renatus.widmann@uni-due.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+<div class="card">
+
+<img
+ src="images/wintgens.jpg"
+ alt="Prof. Dr. Wintgens, Thomas">
+
+<h3>
+    Prof. Dr. Wintgens, Thomas
+</h3>
+
+<p>
+    RWTH Aachen
+</p>
+
+<a
+ class="btn"
+ href="mailto:wintgens@isa.rwth-aachen.de">
+
+```
+E-Mail
+```
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-inner">
+
+<div>
+
+<img
+ class="footer-logo"
+ src="images/logosiwawipro.png"
+ alt="SiWaWiPro">
+
+<div class="footer-text">
+
+Universitäre Siedlungswasserwirtschaft
+
+</div>
+
+</div>
+
+<div class="footer-right">
+
+<a
+ href="https://www.linkedin.com/company/siwawipro"
+ target="_blank"
+ rel="noopener noreferrer">
+
+```
+LinkedIn
+```
+
+</a>
+
+<div class="copyright">
+
+© SiWaWiPro 2026
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+
+</html>
 
