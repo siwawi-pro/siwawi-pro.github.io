@@ -1,1 +1,2602 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SiWaWiPro – Universitäre Siedlungswasserwirtschaft</title>
+
+<link rel="icon" href="favicon.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   DESIGN SYSTEM
+========================================================= */
+
+:root {
+
+    --navy: #062d49;
+    --navy-2: #073d60;
+
+    --blue: #087da5;
+    --blue-2: #0b9fc0;
+    --cyan: #20c4dc;
+    --cyan-light: #9cecf5;
+
+    --water-dark: #043554;
+    --water: #087ea6;
+
+    --ice: #edfafd;
+    --ice-2: #f6fcfd;
+
+    --white: #ffffff;
+
+    --text: #102d3d;
+    --text-light: #607887;
+
+    --border: rgba(8, 126, 165, 0.13);
+
+    --shadow:
+        0 25px 70px rgba(4, 48, 75, 0.11);
+
+    --shadow-small:
+        0 12px 35px rgba(4, 48, 75, 0.08);
+
+    --radius: 26px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(32,196,220,0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(8,126,165,0.08),
+            transparent 30%
+        ),
+        var(--ice-2);
+
+    line-height: 1.7;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: min(
+        1180px,
+        calc(100% - 40px)
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 50;
+
+    padding: 25px 0;
+}
+
+
+.header-inner {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    display: block;
+
+    width: 155px;
+}
+
+.logo img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 6px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    border:
+        1px solid rgba(255,255,255,0.65);
+
+    box-shadow:
+        0 12px 35px rgba(4,48,75,0.08);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+nav a {
+
+    position: relative;
+
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 0.86rem;
+
+    font-weight: 600;
+
+    transition:
+        0.25s ease;
+}
+
+
+nav a:hover {
+
+    color: var(--blue);
+
+    background:
+        var(--ice);
+}
+
+
+nav a.active {
+
+    color: var(--blue);
+
+    background:
+        var(--ice);
+}
+
+
+/* =========================================================
+   LINKEDIN BUTTON
+========================================================= */
+
+.linkedin-top {
+
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-left: 5px;
+
+    border-radius: 50%;
+
+    background:
+        var(--navy);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+
+.linkedin-top:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        var(--blue);
+
+    box-shadow:
+        0 10px 25px rgba(8,126,165,0.25);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 760px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-top: 80px;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(32,196,220,0.24),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            125deg,
+            #f9feff 0%,
+            #eefafd 48%,
+            #dff6fa 100%
+        );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    max-width: 700px;
+
+    padding-bottom: 210px;
+}
+
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    color: var(--blue);
+
+    background:
+        rgba(255,255,255,0.80);
+
+    border:
+        1px solid rgba(8,126,165,0.13);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    box-shadow:
+        0 8px 25px rgba(8,126,165,0.06);
+}
+
+
+.eyebrow-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--cyan);
+
+    box-shadow:
+        0 0 0 5px rgba(32,196,220,0.10);
+}
+
+
+.hero h1 {
+
+    margin: 25px 0 22px;
+
+    max-width: 780px;
+
+    color: var(--navy);
+
+    font-size:
+        clamp(3rem, 7vw, 6.3rem);
+
+    line-height: 0.99;
+
+    letter-spacing:
+        -0.065em;
+
+    font-weight: 800;
+}
+
+
+.hero h1 span {
+
+    color:
+        var(--blue);
+}
+
+
+.hero-description {
+
+    max-width: 630px;
+
+    margin: 0 0 30px;
+
+    color: var(--text-light);
+
+    font-size: 1.12rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 20px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    transition:
+        0.25s ease;
+}
+
+
+.btn-primary {
+
+    color: white;
+
+    background:
+        var(--navy);
+
+    box-shadow:
+        0 12px 30px rgba(6,45,73,0.20);
+}
+
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        var(--blue);
+
+    box-shadow:
+        0 15px 35px rgba(8,126,165,0.25);
+}
+
+
+.btn-secondary {
+
+    color: var(--navy);
+
+    background:
+        rgba(255,255,255,0.80);
+
+    border:
+        1px solid rgba(8,126,165,0.15);
+}
+
+
+.btn-secondary:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        white;
+}
+
+
+/* =========================================================
+   WATER SCENE
+========================================================= */
+
+.water-scene {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    height: 410px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   WATER SURFACE
+========================================================= */
+
+.water-surface {
+
+    position: absolute;
+
+    left: -5%;
+
+    width: 110%;
+
+    height: 260px;
+
+    bottom: 70px;
+
+    background:
+
+        radial-gradient(
+            ellipse at 25% 40%,
+            rgba(255,255,255,0.70) 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            ellipse at 70% 30%,
+            rgba(157,238,247,0.35) 0%,
+            transparent 28%
+        ),
+
+        linear-gradient(
+            180deg,
+            #0eb2ce 0%,
+            #087fa6 45%,
+            #045273 100%
+        );
+
+    border-radius:
+        50% 50% 0 0 / 30% 30% 0 0;
+
+    transform:
+        rotate(-2deg);
+
+    box-shadow:
+        inset 0 20px 40px rgba(255,255,255,0.15);
+}
+
+
+/* =========================================================
+   SVG WAVES
+========================================================= */
+
+.wave-svg {
+
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 280px;
+
+    bottom: 170px;
+
+    z-index: 5;
+
+    overflow: visible;
+}
+
+
+.wave-svg svg {
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: visible;
+}
+
+
+.wave-path {
+
+    animation:
+        waveMove 9s ease-in-out infinite;
+}
+
+
+.wave-path.wave-delay {
+
+    animation-duration:
+        13s;
+
+    animation-delay:
+        -3s;
+}
+
+
+@keyframes waveMove {
+
+    0%, 100% {
+
+        transform:
+            translateX(-2%);
+    }
+
+    50% {
+
+        transform:
+            translateX(2%);
+    }
+}
+
+
+/* =========================================================
+   WATER LIGHT REFLECTIONS
+========================================================= */
+
+.water-reflections {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 8;
+
+    pointer-events: none;
+
+    background:
+
+        repeating-linear-gradient(
+            105deg,
+            transparent 0px,
+            transparent 35px,
+            rgba(255,255,255,0.08) 36px,
+            transparent 38px,
+            transparent 75px
+        );
+
+    opacity: 0.45;
+
+    animation:
+        reflections 14s linear infinite;
+}
+
+
+@keyframes reflections {
+
+    from {
+        transform:
+            translateX(-50px);
+    }
+
+    to {
+        transform:
+            translateX(50px);
+    }
+}
+
+
+/* =========================================================
+   WATER BUBBLES
+========================================================= */
+
+.bubbles {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 9;
+
+    pointer-events: none;
+}
+
+
+.bubble {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,255,255,0.45);
+
+    background:
+        rgba(255,255,255,0.08);
+
+    box-shadow:
+        inset 2px 2px 3px rgba(255,255,255,0.4);
+
+    animation:
+        bubbleUp linear infinite;
+}
+
+
+.bubble:nth-child(1) {
+    left: 12%;
+    animation-duration: 8s;
+}
+
+.bubble:nth-child(2) {
+    left: 25%;
+    width: 7px;
+    height: 7px;
+    animation-duration: 11s;
+    animation-delay: -4s;
+}
+
+.bubble:nth-child(3) {
+    left: 43%;
+    width: 14px;
+    height: 14px;
+    animation-duration: 13s;
+    animation-delay: -7s;
+}
+
+.bubble:nth-child(4) {
+    left: 58%;
+    width: 6px;
+    height: 6px;
+    animation-duration: 9s;
+    animation-delay: -2s;
+}
+
+.bubble:nth-child(5) {
+    left: 73%;
+    width: 11px;
+    height: 11px;
+    animation-duration: 12s;
+    animation-delay: -5s;
+}
+
+.bubble:nth-child(6) {
+    left: 88%;
+    width: 8px;
+    height: 8px;
+    animation-duration: 10s;
+    animation-delay: -8s;
+}
+
+
+@keyframes bubbleUp {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    85% {
+        opacity: 0.45;
+    }
+
+    100% {
+
+        transform:
+            translateY(-350px)
+            translateX(35px)
+            scale(1.1);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.stats {
+
+    position: relative;
+
+    z-index: 20;
+
+    margin-top: -95px;
+}
+
+
+.stats-card {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,0.94);
+
+    border:
+        1px solid rgba(255,255,255,0.9);
+
+    border-radius:
+        25px;
+
+    box-shadow:
+        0 25px 65px rgba(4,48,75,0.13);
+
+    backdrop-filter:
+        blur(20px);
+}
+
+
+.stat {
+
+    position: relative;
+
+    padding:
+        34px 25px;
+
+    text-align: center;
+}
+
+
+.stat:not(:last-child)::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 25%;
+
+    right: 0;
+
+    width: 1px;
+
+    height: 50%;
+
+    background:
+        var(--border);
+}
+
+
+.stat-number {
+
+    display: block;
+
+    color:
+        var(--navy);
+
+    font-size:
+        clamp(2rem, 4vw, 3.2rem);
+
+    line-height: 1;
+
+    letter-spacing:
+        -0.05em;
+
+    font-weight: 800;
+}
+
+
+.stat-number span {
+
+    color:
+        var(--cyan);
+}
+
+
+.stat-title {
+
+    display: block;
+
+    margin-top: 9px;
+
+    color:
+        var(--navy);
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+}
+
+
+.stat-description {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        var(--text-light);
+
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section.content-section {
+
+    padding:
+        105px 0 0;
+}
+
+
+.section-intro {
+
+    max-width: 700px;
+
+    margin-bottom: 45px;
+}
+
+
+.section-label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        var(--blue);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+.section-title {
+
+    margin: 0;
+
+    color:
+        var(--navy);
+
+    font-size:
+        clamp(2rem, 4vw, 3.5rem);
+
+    line-height: 1.08;
+
+    letter-spacing:
+        -0.05em;
+}
+
+
+.section-text {
+
+    margin-top: 18px;
+
+    color:
+        var(--text-light);
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   FEATURE GRID
+========================================================= */
+
+.feature-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.feature-card {
+
+    position: relative;
+
+    min-height: 290px;
+
+    padding: 32px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,0.92);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow-small);
+
+    transition:
+        0.3s ease;
+}
+
+
+.feature-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.feature-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -90px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(32,196,220,0.10);
+}
+
+
+.feature-icon {
+
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 17px;
+
+    background:
+        var(--ice);
+
+    color:
+        var(--blue);
+
+    font-size: 1.5rem;
+}
+
+
+.feature-card h3 {
+
+    margin:
+        0 0 12px;
+
+    color:
+        var(--navy);
+
+    font-size: 1.2rem;
+}
+
+
+.feature-card p {
+
+    margin: 0;
+
+    color:
+        var(--text-light);
+
+    font-size: 0.91rem;
+}
+
+
+.card-link {
+
+    position: absolute;
+
+    left: 32px;
+    bottom: 25px;
+
+    color:
+        var(--blue);
+
+    text-decoration: none;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ACTIVITIES / DEEP WATER SECTION
+========================================================= */
+
+.activity-section {
+
+    position: relative;
+
+    margin-top: 110px;
+
+    padding:
+        100px 0 115px;
+
+    overflow: hidden;
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(32,196,220,0.20),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #042c48,
+            #045172 55%,
+            #056d89
+        );
+}
+
+
+.activity-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+    left: -5%;
+
+    width: 110%;
+    height: 170px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--ice-2);
+}
+
+
+.activity-inner {
+
+    position: relative;
+
+    z-index: 10;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+.activity-section .section-label {
+
+    color:
+        var(--cyan-light);
+}
+
+
+.activity-section .section-title {
+
+    color: white;
+}
+
+
+.activity-description {
+
+    margin-top: 20px;
+
+    color:
+        rgba(255,255,255,0.70);
+}
+
+
+.activity-list {
+
+    display: grid;
+
+    gap: 12px;
+
+    margin: 30px 0 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.activity-list li {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    color:
+        rgba(255,255,255,0.88);
+
+    font-size: 0.91rem;
+}
+
+
+.check {
+
+    flex:
+        0 0 auto;
+
+    width: 20px;
+    height: 20px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-top: 2px;
+
+    border-radius: 50%;
+
+    background:
+        var(--cyan);
+
+    color:
+        var(--navy);
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   SPEAKER CARD
+========================================================= */
+
+.speaker-panel {
+
+    padding: 35px;
+
+    border:
+        1px solid rgba(255,255,255,0.13);
+
+    border-radius:
+        25px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+
+.speaker-period {
+
+    margin-bottom: 28px;
+
+    color:
+        var(--cyan-light);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+}
+
+
+.speaker-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+}
+
+
+.speaker {
+
+    padding-right: 20px;
+
+    border-right:
+        1px solid rgba(255,255,255,0.12);
+}
+
+
+.speaker:last-child {
+
+    padding-right: 0;
+
+    border-right: 0;
+}
+
+
+.speaker-avatar {
+
+    width: 75px;
+    height: 75px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 50%;
+
+    color:
+        var(--navy);
+
+    background:
+        linear-gradient(
+            145deg,
+            white,
+            #dff8fa
+        );
+
+    font-size: 1.35rem;
+
+    font-weight: 800;
+}
+
+
+.speaker h3 {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 1rem;
+
+    line-height: 1.4;
+}
+
+
+.speaker p {
+
+    margin: 7px 0 12px;
+
+    color:
+        rgba(255,255,255,0.62);
+
+    font-size: 0.78rem;
+
+    line-height: 1.5;
+}
+
+
+.speaker a {
+
+    color:
+        var(--cyan-light);
+
+    font-size: 0.72rem;
+
+    text-decoration: none;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   BOTTOM WATER
+========================================================= */
+
+.bottom-water {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    height: 130px;
+
+    opacity: 0.22;
+
+    background:
+
+        repeating-linear-gradient(
+            -10deg,
+            transparent 0,
+            transparent 24px,
+            rgba(255,255,255,0.25) 25px,
+            transparent 27px
+        );
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        55px 0;
+
+    color:
+        rgba(255,255,255,0.62);
+
+    background:
+        #03263e;
+}
+
+
+.footer-inner {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+    gap: 40px;
+}
+
+
+.footer-brand img {
+
+    width: 150px;
+
+    filter:
+        brightness(0) invert(1);
+
+    opacity:
+        0.95;
+}
+
+
+.footer-brand p {
+
+    max-width: 300px;
+
+    margin-top: 15px;
+
+    font-size: 0.78rem;
+
+    line-height: 1.7;
+}
+
+
+.footer-column h4 {
+
+    margin:
+        0 0 15px;
+
+    color: white;
+
+    font-size: 0.78rem;
+}
+
+
+.footer-column a {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        rgba(255,255,255,0.58);
+
+    text-decoration: none;
+
+    font-size: 0.77rem;
+
+    transition:
+        0.2s ease;
+}
+
+
+.footer-column a:hover {
+
+    color:
+        var(--cyan-light);
+}
+
+
+.footer-bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 45px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.10);
+
+    font-size: 0.72rem;
+}
+
+
+.footer-linkedin {
+
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    color:
+        var(--navy);
+
+    background:
+        white;
+
+    text-decoration: none;
+
+    font-weight: 800;
+
+    transition:
+        0.25s ease;
+}
+
+
+.footer-linkedin:hover {
+
+    transform:
+        translateY(-3px);
+
+    color:
+        white;
+
+    background:
+        var(--cyan);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    nav a {
+        padding:
+            8px 10px;
+
+        font-size:
+            0.78rem;
+    }
+
+    .feature-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .activity-inner {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 45px;
+    }
+
+    .footer-inner {
+
+        grid-template-columns:
+            2fr 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .container {
+
+        width:
+            calc(100% - 28px);
+    }
+
+    header {
+
+        position:
+            relative;
+
+        background:
+            white;
+
+        padding:
+            17px 0;
+    }
+
+    .header-inner {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+    nav {
+
+        width:
+            100%;
+
+        overflow-x:
+            auto;
+
+        justify-content:
+            flex-start;
+
+        border-radius:
+            17px;
+    }
+
+    .linkedin-top {
+
+        display:
+            none;
+    }
+
+    .hero {
+
+        min-height:
+            690px;
+
+        padding-top:
+            30px;
+    }
+
+    .hero-content {
+
+        padding-bottom:
+            230px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            clamp(2.7rem, 13vw, 4.5rem);
+    }
+
+    .hero-description {
+
+        font-size:
+            0.98rem;
+    }
+
+    .water-scene {
+
+        height:
+            330px;
+    }
+
+    .stats {
+
+        margin-top:
+            -60px;
+    }
+
+    .stats-card {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .stat {
+
+        padding:
+            25px 15px;
+    }
+
+    .stat:nth-child(2)::after {
+
+        display:
+            none;
+    }
+
+    .stat:nth-child(-n+2) {
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .feature-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .speaker-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .speaker {
+
+        padding:
+            0 0 22px;
+
+        border-right:
+            0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,0.12);
+    }
+
+    .speaker:last-child {
+
+        padding-bottom:
+            0;
+
+        border-bottom:
+            0;
+    }
+
+    .footer-inner {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .footer-brand {
+
+        grid-column:
+            1 / -1;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .hero-buttons {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+    .btn {
+
+        justify-content:
+            center;
+    }
+
+    .stats-card {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .stat-number {
+
+        font-size:
+            2rem;
+    }
+
+    .stat-title {
+
+        font-size:
+            0.78rem;
+    }
+
+    .stat-description {
+
+        display:
+            none;
+    }
+
+    .activity-section {
+
+        margin-top:
+            80px;
+
+        padding:
+            90px 0;
+    }
+
+    .footer-inner {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .footer-brand {
+
+        grid-column:
+            auto;
+    }
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior:
+            auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container">
+
+<div class="header-inner">
+
+<a href="#" class="logo">
+
+<img
+ src="images/logosiwawipro.png"
+ alt="SiWaWiPro – Universitäre Siedlungswasserwirtschaft">
+
+</a>
+
+<nav>
+
+<a href="#" class="active">
+    Über uns
+</a>
+
+<a href="professor_innen.html">
+    Professor*innen
+</a>
+
+<a href="institute.html">
+    Institute
+</a>
+
+<a href="positionen.html">
+    Positionen
+</a>
+
+<a href="kontakt.html">
+    Kontakt
+</a>
+
+<a
+ href="https://www.linkedin.com/company/siwawipro"
+ target="_blank"
+ rel="noopener noreferrer"
+ class="linkedin-top"
+ aria-label="SiWaWiPro auf LinkedIn">
+
+```
+in
+```
+
+</a>
+
+</nav>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<span class="eyebrow">
+
+<span class="eyebrow-dot"></span>
+
+Universitäre Siedlungswasserwirtschaft
+
+</span>
+
+<h1>
+
+Wissen<br>
+
+<span>verbinden.</span><br>
+
+Zukunft<br>
+
+gestalten.
+
+</h1>
+
+<p class="hero-description">
+
+SiWaWiPro vernetzt Professor*innen der universitären
+Siedlungswasserwirtschaft und stärkt Forschung, Lehre,
+Nachwuchsförderung und den wissenschaftlichen Austausch.
+
+</p>
+
+<div class="hero-buttons">
+
+<a
+ href="#ueber-uns"
+ class="btn btn-primary">
+
+```
+Über uns
+<span>→</span>
+```
+
+</a>
+
+<a
+ href="#aktivitaeten"
+ class="btn btn-secondary">
+
+```
+Mehr erfahren
+<span>↓</span>
+```
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     WATER SCENE
+===================================================== -->
+
+<div class="water-scene">
+
+<div class="wave-svg">
+
+<svg
+ viewBox="0 0 1440 300"
+ preserveAspectRatio="none"
+ xmlns="http://www.w3.org/2000/svg">
+
+<path
+ class="wave-path"
+ d="
+ M0,180
+ C180,100 320,270 520,175
+ C720,80 850,210 1040,135
+ C1200,70 1320,130 1440,80
+ L1440,300
+ L0,300 Z"
+ fill="#ffffff"
+ opacity="0.94"/>
+
+<path
+ class="wave-path wave-delay"
+ d="
+ M0,205
+ C200,125 340,285 560,185
+ C760,95 890,235 1080,155
+ C1230,95 1350,145 1440,100
+ L1440,300
+ L0,300 Z"
+ fill="#d9f7fa"
+ opacity="0.78"/>
+
+<path
+ class="wave-path"
+ d="
+ M0,225
+ C200,150 350,295 570,210
+ C780,125 900,255 1100,175
+ C1240,120 1360,175 1440,130"
+ fill="none"
+ stroke="#ffffff"
+ stroke-width="4"
+ opacity="0.8"/>
+
+</svg>
+
+</div>
+
+<div class="water-surface"></div>
+
+<div class="water-reflections"></div>
+
+<div class="bubbles">
+
+<span class="bubble"></span> <span class="bubble"></span> <span class="bubble"></span> <span class="bubble"></span> <span class="bubble"></span> <span class="bubble"></span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stats-card">
+
+<div class="stat">
+
+<span class="stat-number">
+    1<span>×</span>
+</span>
+
+<span class="stat-title">
+    gemeinsames Mandat
+</span>
+
+<span class="stat-description">
+    für Forschung und Lehre
+</span>
+
+</div>
+
+<div class="stat">
+
+<span class="stat-number">
+    5<span>+</span>
+</span>
+
+<span class="stat-title">
+    zentrale Aktivitäten
+</span>
+
+<span class="stat-description">
+    Zusammenarbeit und Austausch
+</span>
+
+</div>
+
+<div class="stat">
+
+<span class="stat-number">
+    2
+</span>
+
+<span class="stat-title">
+    Gruppensprecher
+</span>
+
+<span class="stat-description">
+    Amtsperiode 2026–2028
+</span>
+
+</div>
+
+<div class="stat">
+
+<span class="stat-number">
+    2026<span>–</span>28
+</span>
+
+<span class="stat-title">
+    aktuelle Amtsperiode
+</span>
+
+<span class="stat-description">
+    gemeinsame Verantwortung
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     ÜBER UNS
+===================================================== -->
+
+<section
+    class="content-section"
+    id="ueber-uns">
+
+<div class="container">
+
+<div class="section-intro">
+
+<span class="section-label">
+    Über SiWaWiPro
+</span>
+
+<h2 class="section-title">
+
+Gemeinsam für eine
+nachhaltige Wasserzukunft.
+
+</h2>
+
+<p class="section-text">
+
+Die Professor*innengruppe Siedlungswasserwirtschaft
+verbindet universitäre Forschung und Lehre.
+Ziel ist es, der ingenieurbasierten Siedlungswasserwirtschaft
+ein abgestimmtes Mandat zu geben und die Vernetzung
+der Akteurinnen und Akteure zu fördern.
+
+</p>
+
+</div>
+
+<div class="feature-grid">
+
+<!-- CARD 1 -->
+
+<article class="feature-card">
+
+<div class="feature-icon">
+    ≋
+</div>
+
+<h3>
+    Unser Ziel
+</h3>
+
+<p>
+
+Wir schaffen ein abgestimmtes Mandat für die
+ingenieurbasierte Forschung und Lehre in der
+Siedlungswasserwirtschaft.
+
+</p>
+
+<a
+ href="#"
+ class="card-link">
+
+```
+Mehr über uns →
+```
+
+</a>
+
+</article>
+
+<!-- CARD 2 -->
+
+<article class="feature-card">
+
+<div class="feature-icon">
+    ◌
+</div>
+
+<h3>
+    Unsere Themen
+</h3>
+
+<p>
+
+Wir entwickeln relevante Forschungsthemen
+und stärken den wissenschaftlichen Austausch
+rund um die nachhaltige Wasserinfrastruktur.
+
+</p>
+
+<a
+ href="positionen.html"
+ class="card-link">
+
+```
+Zu den Positionen →
+```
+
+</a>
+
+</article>
+
+<!-- CARD 3 -->
+
+<article class="feature-card">
+
+<div class="feature-icon">
+    ◇
+</div>
+
+<h3>
+    Unser Netzwerk
+</h3>
+
+<p>
+
+Vernetzung, Kooperation und gemeinsamer
+Austausch stärken die universitäre
+Siedlungswasserwirtschaft.
+
+</p>
+
+<a
+ href="institute.html"
+ class="card-link">
+
+```
+Institute entdecken →
+```
+
+</a>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     AKTIVITÄTEN
+===================================================== -->
+
+<section
+    class="activity-section"
+    id="aktivitaeten">
+
+<div class="container">
+
+<div class="activity-inner">
+
+<div>
+
+<span class="section-label">
+    Aktivitäten
+</span>
+
+<h2 class="section-title">
+
+Gemeinsam<br>
+mehr bewegen.
+
+</h2>
+
+<p class="activity-description">
+
+SiWaWiPro fördert Zusammenarbeit,
+Austausch und die gemeinsame Entwicklung
+der universitären Siedlungswasserwirtschaft.
+
+</p>
+
+<ul class="activity-list">
+
+<li>
+
+<span class="check">
+    ✓
+</span>
+
+<span>
+    Stärkung der Zusammenarbeit in Lehre,
+    Forschung und Nachwuchsförderung
+</span>
+
+</li>
+
+<li>
+
+<span class="check">
+    ✓
+</span>
+
+<span>
+    Austausch mit anderen Netzwerken
+    und Institutionen
+</span>
+
+</li>
+
+<li>
+
+<span class="check">
+    ✓
+</span>
+
+<span>
+    Entwicklung relevanter
+    Forschungsthemen
+</span>
+
+</li>
+
+<li>
+
+<span class="check">
+    ✓
+</span>
+
+<span>
+    Unterstützung der nachhaltigen Sicherung
+    und Pflege von Forschungsdaten
+</span>
+
+</li>
+
+<li>
+
+<span class="check">
+    ✓
+</span>
+
+<span>
+    Kommunikation der in unserer Gruppe
+    erarbeiteten Ergebnisse
+</span>
+
+</li>
+
+</ul>
+
+</div>
+
+<!-- =====================================================
+     SPRECHER
+===================================================== -->
+
+<div class="speaker-panel">
+
+<div class="speaker-period">
+
+Sprecher 2026 – 2028
+
+</div>
+
+<div class="speaker-grid">
+
+<div class="speaker">
+
+<div class="speaker-avatar">
+    SK
+</div>
+
+<h3>
+    Prof. Dr.-Ing.<br>
+    Stephan Köster
+</h3>
+
+<p>
+    Leibniz Universität Hannover
+</p>
+
+<a href="mailto:koester@isah.uni-hannover.de">
+
+```
+koester@isah.uni-hannover.de
+```
+
+</a>
+
+</div>
+
+<div class="speaker">
+
+<div class="speaker-avatar">
+    TM
+</div>
+
+<h3>
+    Prof. Dr.-Ing.<br>
+    Tobias Morck
+</h3>
+
+<p>
+    Universität Kassel
+</p>
+
+<a href="mailto:morck@uni-kassel.de">
+
+```
+morck@uni-kassel.de
+```
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="bottom-water"></div>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-inner">
+
+<div class="footer-brand">
+
+<img
+ src="images/logosiwawipro.png"
+ alt="SiWaWiPro">
+
+<p>
+
+Professor*innengruppe der universitären
+Siedlungswasserwirtschaft.
+
+</p>
+
+</div>
+
+<div class="footer-column">
+
+<h4>
+    NAVIGATION
+</h4>
+
+<a href="#">
+    Über uns
+</a>
+
+<a href="professor_innen.html">
+    Professor*innen
+</a>
+
+<a href="institute.html">
+    Institute
+</a>
+
+</div>
+
+<div class="footer-column">
+
+<h4>
+    THEMEN
+</h4>
+
+<a href="positionen.html">
+    Positionen
+</a>
+
+<a href="kontakt.html">
+    Kontakt
+</a>
+
+</div>
+
+<div class="footer-column">
+
+<h4>
+    KONTAKT
+</h4>
+
+<a href="mailto:koester@isah.uni-hannover.de">
+    Stephan Köster
+</a>
+
+<a href="mailto:morck@uni-kassel.de">
+    Tobias Morck
+</a>
+
+<a
+ href="https://www.linkedin.com/company/siwawipro"
+ target="_blank"
+ rel="noopener noreferrer">
+
+```
+LinkedIn
+```
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<span>
+    © SiWaWiPro 2026
+</span>
+
+<a
+ href="https://www.linkedin.com/company/siwawipro"
+ target="_blank"
+ rel="noopener noreferrer"
+ class="footer-linkedin"
+ aria-label="SiWaWiPro auf LinkedIn">
+
+```
+in
+```
+
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
 
