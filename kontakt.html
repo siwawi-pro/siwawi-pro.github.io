@@ -414,6 +414,57 @@ nav a.active {
 
 
 /* =========================================================
+   KONTAKT-EINTRÄGE
+========================================================= */
+
+.contact-item {
+
+    margin:
+        0 0 12px;
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 12px;
+}
+
+.contact-item:last-child {
+
+    margin-bottom: 0;
+}
+
+.contact-label {
+
+    min-width: 65px;
+
+    color: var(--blau-dunkel);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+}
+
+.contact-item a {
+
+    color: var(--blau);
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    font-size: 0.88rem;
+
+    overflow-wrap: anywhere;
+}
+
+.contact-item a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
    KONTAKT-HIGHLIGHT
 ========================================================= */
 
@@ -669,6 +720,18 @@ footer {
             25px;
     }
 
+    .contact-item {
+
+        display: block;
+    }
+
+    .contact-label {
+
+        display: block;
+
+        margin-bottom: 2px;
+    }
+
     .contact-highlight {
 
         padding:
@@ -812,25 +875,45 @@ Hier finden Sie unsere Kontaktdaten und rechtlichen Angaben.
 
 <div class="info-grid">
 
+<!-- KONTAKTDATEN -->
+
 <div class="box">
 
 <h2>
     SiWaWiPro
 </h2>
 
-<p>
+<p class="contact-item">
 
-E-Mail: <a href="mailto:koester@isah.uni-hannover.de">
-[koester@isah.uni-hannover.de](mailto:koester@isah.uni-hannover.de) </a>
+<span class="contact-label">
+    E-Mail
+</span>
 
-<br>
+<a href="mailto:koester@isah.uni-hannover.de">
+    koester@isah.uni-hannover.de
+</a>
 
-E-Mail: <a href="mailto:morck@uni-kassel.de">
-[morck@uni-kassel.de](mailto:morck@uni-kassel.de) </a>
+</p>
 
-<br>
+<p class="contact-item">
 
-Website: <a
+<span class="contact-label">
+    E-Mail
+</span>
+
+<a href="mailto:morck@uni-kassel.de">
+    morck@uni-kassel.de
+</a>
+
+</p>
+
+<p class="contact-item">
+
+<span class="contact-label">
+    Website
+</span>
+
+<a
  href="https://siwawi-pro.github.io"
  target="_blank"
  rel="noopener noreferrer">
@@ -844,6 +927,8 @@ siwawi-pro.github.io
 </p>
 
 </div>
+
+<!-- ANLIEGEN -->
 
 <div class="box">
 
@@ -922,6 +1007,10 @@ deren Betreiber verantwortlich.
 </p>
 
 </div>
+
+<!-- =====================================================
+     ABSCHLUSS
+===================================================== -->
 
 <div class="contact-highlight">
 
