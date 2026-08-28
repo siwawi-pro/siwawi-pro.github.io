@@ -1,134 +1,959 @@
 <!DOCTYPE html>
+
 <html lang="de">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SiWaWiPro Positionen</title>
+
+<link rel="icon" href="favicon.png" type="image/png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root{
-    --blau:#0a6aa1;
-    --hellblau:#e9f5fb;
-    --grau:#f4f6f8;
-    --text:#222;
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   FARBEN
+========================================================= */
+
+:root {
+
+    --blau-dunkel: #073B5C;
+    --blau: #087EA4;
+    --blau-hell: #18B6D0;
+
+    --hintergrund: #F4FAFC;
+    --hellblau: #E8F6FA;
+
+    --text: #18303D;
+    --text-hell: #647985;
+
+    --weiss: #FFFFFF;
+
+    --linie: #D8EAF0;
 }
 
-   body{
-    font-family:"Inter",sans-serif;
-    background: linear-gradient(135deg, #e0f2fe 0%, #38bdf8 40%, #0ea5e9 100%);
-    color:var(--text);
-    max-width:1000px;
-    margin:0 auto;
-    padding:0 20px 40px;
-    line-height:1.7;
+
+/* =========================================================
+   GRUNDLAYOUT
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--text);
+
+    background: var(--hintergrund);
+
+    line-height: 1.7;
+}
+
+.container {
+
+    width: min(1080px, calc(100% - 40px));
+
+    margin: 0 auto;
 }
 
 
-    h1 {
-      color: #0a6aa1;
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    background: white;
+
+    border-bottom:
+        1px solid var(--linie);
+}
+
+.header-inner {
+
+    min-height: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    display: block;
+
+    width: 145px;
+}
+
+.logo img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+nav a {
+
+    position: relative;
+
+    padding: 9px 12px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 0.88rem;
+
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+
+    bottom: 2px;
+
+    height: 2px;
+
+    background: var(--blau-hell);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform 0.2s ease;
+}
+
+nav a:hover {
+
+    color: var(--blau);
+}
+
+nav a:hover::after,
+nav a.active::after {
+
+    transform: scaleX(1);
+}
+
+nav a.active {
+
+    color: var(--blau);
+}
+
+
+/* =========================================================
+   SEITEN-INTRO
+========================================================= */
+
+.page-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        75px 0 85px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #FFFFFF 0%,
+            #F2FAFC 65%,
+            #E5F6FA 100%
+        );
+}
+
+.page-hero-inner {
+
+    max-width: 760px;
+}
+
+.kicker {
+
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--blau);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.10em;
+
+    text-transform: uppercase;
+}
+
+.page-hero h1 {
+
+    margin: 0;
+
+    color: var(--blau-dunkel);
+
+    font-size:
+        clamp(2.4rem, 5vw, 4rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.05em;
+}
+
+.page-hero h1 span {
+
+    color: var(--blau);
+}
+
+.page-hero p {
+
+    max-width: 680px;
+
+    margin:
+        22px 0 0;
+
+    color: var(--text-hell);
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+
+    padding:
+        80px 0 90px;
+}
+
+.section-heading {
+
+    max-width: 720px;
+
+    margin-bottom: 40px;
+}
+
+.section-heading small {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--blau);
+
+    font-size: 0.73rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.10em;
+
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+
+    margin: 0;
+
+    color: var(--blau-dunkel);
+
+    font-size:
+        clamp(2rem, 4vw, 3rem);
+
+    line-height: 1.15;
+
+    letter-spacing: -0.04em;
+}
+
+.section-heading p {
+
+    margin-top: 15px;
+
+    color: var(--text-hell);
+}
+
+
+/* =========================================================
+   POSITIONEN
+========================================================= */
+
+.position-list {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr;
+
+    gap: 18px;
+}
+
+.statement {
+
+    position: relative;
+
+    padding:
+        28px 30px 28px 34px;
+
+    background: white;
+
+    border:
+        1px solid var(--linie);
+
+    border-left:
+        4px solid var(--blau);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(7,59,92,0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.statement:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(7,59,92,0.08);
+}
+
+.statement h3 {
+
+    margin:
+        0 0 6px;
+
+    color: var(--blau-dunkel);
+
+    font-size: 1.05rem;
+
+    line-height: 1.4;
+}
+
+.date {
+
+    margin-bottom: 15px;
+
+    color: var(--blau);
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+.statement p {
+
+    margin: 0;
+
+    color: var(--text-hell);
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   HIGHLIGHT
+========================================================= */
+
+.position-highlight {
+
+    margin-top: 60px;
+
+    padding:
+        40px;
+
+    background:
+        var(--blau-dunkel);
+
+    color: white;
+
+    border-radius: 14px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.position-highlight::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: -120px;
+
+    bottom: -150px;
+
+    width: 400px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    border-top:
+        2px solid rgba(255,255,255,0.15);
+
+    border-bottom:
+        2px solid rgba(255,255,255,0.10);
+
+    transform:
+        rotate(-10deg);
+}
+
+.position-highlight h2 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin:
+        0 0 10px;
+
+    color: white;
+
+    font-size:
+        clamp(1.8rem, 3vw, 2.5rem);
+
+    line-height: 1.15;
+
+    letter-spacing: -0.03em;
+}
+
+.position-highlight p {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 700px;
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,0.72);
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    margin-top: 20px;
+
+    padding:
+        45px 0;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    background:
+        #052D47;
+}
+
+.footer-inner {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.footer-logo {
+
+    width: 145px;
+
+    filter:
+        brightness(0) invert(1);
+
+    margin-bottom: 8px;
+}
+
+.footer-text {
+
+    font-size: 0.76rem;
+}
+
+.footer-right {
+
+    text-align: right;
+}
+
+.footer-right a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+}
+
+.footer-right a:hover {
+
+    color:
+        var(--blau-hell);
+}
+
+.copyright {
+
+    margin-top: 8px;
+
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .header-inner {
+
+        flex-direction: column;
+
+        padding:
+            20px 0;
     }
 
-    nav a{
-    text-decoration:none;
-    color:var(--blau);
-    font-weight:600;
-    margin-right:20px;
-    transition:0.3s;
+    nav {
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .page-hero {
+
+        padding:
+            60px 0 70px;
+    }
 }
 
-    .intro {
-      background: #f4f7fb;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 20px;
+
+@media (max-width: 600px) {
+
+    .container {
+
+        width:
+            calc(100% - 28px);
+    }
+
+    nav {
+
+        justify-content:
+            flex-start;
+
+        overflow-x:
+            auto;
+
+        flex-wrap:
+            nowrap;
+
+        padding-bottom:
+            5px;
+    }
+
+    nav a {
+
+        white-space:
+            nowrap;
+
+        font-size:
+            0.78rem;
+    }
+
+    .page-hero {
+
+        padding:
+            50px 0 60px;
+    }
+
+    .page-hero h1 {
+
+        font-size:
+            2.7rem;
+    }
+
+    .page-hero p {
+
+        font-size:
+            0.95rem;
+    }
+
+    .content {
+
+        padding:
+            60px 0 70px;
     }
 
     .statement {
-      border-left: 4px solid #0a6aa1;
-      padding: 10px 15px;
-      margin: 15px 0;
-      background: #fafafa;
+
+        padding:
+            24px 22px 24px 25px;
     }
 
-    .statement h3 {
-      margin: 0 0 5px 0;
-      color: #0a6aa1;
+    .position-highlight {
+
+        padding:
+            30px 25px;
     }
 
-    .date {
-      font-size: 12px;
-      color: #666;
+    .footer-inner {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 13px;
-      color: #777;
+    .footer-right {
+
+        text-align:
+            left;
     }
-  </style>
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>SiWaWiPro-Positionen</h1>
+<!-- =====================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+<div class="container">
+
+<div class="header-inner">
+
+<a href="index.html" class="logo">
+
+<img
+ src="images/logosiwawipro.png"
+ alt="SiWaWiPro Logo">
+
+</a>
 
 <nav>
-  <a href="index.html">Start</a>
-  <a href="professor_innen.html">Professor*innen</a>
-  <a href="institute.html">Institute</a>
-  <a href="kontakt.html">Kontakt</a>
+
+<a href="index.html">
+    Über uns
+</a>
+
+<a href="professor_innen.html">
+    Professor*innen
+</a>
+
+<a href="institute.html">
+    Institute
+</a>
+
+<a href="positionen.html" class="active">
+    Positionen
+</a>
+
+<a href="kontakt.html">
+    Kontakt
+</a>
+
 </nav>
 
-<div class="intro">
-  <p>
-    Diese Seite dokumentiert  Stellungnahmen und fachliche Positionen der SiWaWiPro-Gruppe
-    bzgl. Themen der Siedlungswasserwirtschaft und angrenzender Lehr- und Forschungsfelder.
-  </p>
 </div>
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     SEITEN-INTRO
+========================================================= -->
+
+<section class="page-hero">
+
+<div class="container">
+
+<div class="page-hero-inner">
+
+<span class="kicker">
+    SiWaWiPro
+</span>
+
+<h1>
+
+Fachliche<br>
+
+<span>Positionen.</span>
+
+</h1>
+
+<p>
+
+Die SiWaWiPro-Gruppe dokumentiert Stellungnahmen
+und fachliche Positionen zu aktuellen Themen der
+Siedlungswasserwirtschaft sowie angrenzenden
+Lehr- und Forschungsfeldern.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     POSITIONEN
+========================================================= -->
+
+<main class="content">
+
+<div class="container">
+
+<div class="section-heading">
+
+<small>
+    Stellungnahmen & Positionen
+</small>
+
+<h2>
+    Themen, die uns bewegen.
+</h2>
+
+<p>
+
+Hier finden Sie fachliche Positionen der SiWaWiPro-Gruppe
+zu aktuellen Entwicklungen und Fragestellungen der
+universitären Siedlungswasserwirtschaft.
+
+</p>
+
+</div>
+
+<div class="position-list">
 
 <!-- POSITION 1 -->
-<div class="statement">
-  <h3>Digitalisierung in der Wasserwirtschaft</h3>
-  <div class="date">Stand: 2026</div>
-  <p>
-    ... .
-  </p>
+
+<article class="statement">
+
+<h3>
+    Digitalisierung in der Wasserwirtschaft
+</h3>
+
+<div class="date">
+    Stand: 2026
 </div>
+
+<p>
+    ... .
+</p>
+
+</article>
 
 <!-- POSITION 2 -->
-<div class="statement">
-  <h3>Klimawandel und urbane Systeme</h3>
-  <div class="date">Stand: 2026</div>
-  <p>
-    ... .
-  </p>
+
+<article class="statement">
+
+<h3>
+    Klimawandel und urbane Systeme
+</h3>
+
+<div class="date">
+    Stand: 2026
 </div>
+
+<p>
+    ... .
+</p>
+
+</article>
 
 <!-- POSITION 3 -->
-<div class="statement">
-  <h3>Nachhaltige Infrastrukturen</h3>
-  <div class="date">Stand: 2026</div>
-  <p>
-    .... . 
-  </p>
+
+<article class="statement">
+
+<h3>
+    Nachhaltige Infrastrukturen
+</h3>
+
+<div class="date">
+    Stand: 2026
 </div>
+
+<p>
+    .... .
+</p>
+
+</article>
 
 <!-- POSITION 4 -->
-<div class="statement">
-  <h3>Offene Wissenschaft und Kooperation</h3>
-  <div class="date">Stand: 2026</div>
-  <p>
-    .... .
-  </p>
+
+<article class="statement">
+
+<h3>
+    Offene Wissenschaft und Kooperation
+</h3>
+
+<div class="date">
+    Stand: 2026
 </div>
 
+<p>
+    .... .
+</p>
+
+</article>
+
+</div>
+
+<!-- =====================================================
+     ABSCHLUSS
+===================================================== -->
+
+<div class="position-highlight">
+
+<h2>
+    Wissenschaftlich fundiert.
+</h2>
+
+<p>
+
+SiWaWiPro steht für den Austausch von Wissen,
+die gemeinsame Entwicklung fachlicher Positionen
+und eine starke universitäre Siedlungswasserwirtschaft.
+
+</p>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+========================================================= -->
+
 <footer>
-  © SiWaWiPro
+
+<div class="container">
+
+<div class="footer-inner">
+
+<div>
+
+<img
+ class="footer-logo"
+ src="images/logosiwawipro.png"
+ alt="SiWaWiPro">
+
+<div class="footer-text">
+
+Universitäre Siedlungswasserwirtschaft
+
+</div>
+
+</div>
+
+<div class="footer-right">
+
+<a
+ href="https://www.linkedin.com/company/siwawipro"
+ target="_blank"
+ rel="noopener noreferrer">
+
+```
+LinkedIn
+```
+
+</a>
+
+<div class="copyright">
+
+© SiWaWiPro 2026
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </footer>
 
 </body>
+
 </html>
