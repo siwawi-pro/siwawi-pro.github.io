@@ -328,10 +328,6 @@
             overflow: hidden;
         }
 
-        /*
-           Weiche Wasserfläche
-        */
-
         .network-water::before {
             content: "";
 
@@ -349,10 +345,6 @@
 
             filter: blur(8px);
         }
-
-        /*
-           Zweite weiche Wasserform
-        */
 
         .network-water::after {
             content: "";
@@ -557,7 +549,7 @@
 
 
         /* =========================================
-           ZENTRALES WASSER-SYMBOL
+           ZENTRALES H2O-SYMBOL
         ========================================= */
 
         .water-symbol {
@@ -585,29 +577,33 @@
 
             box-shadow:
                 0 12px 30px rgba(7, 59, 102, 0.18);
+
+            color: var(--blau-dunkel);
+
+            font-size: 22px;
+            font-weight: 700;
+
+            letter-spacing: -0.03em;
         }
 
         .water-symbol::before {
-            content: "";
+            content: "H2O";
 
-            width: 24px;
-            height: 34px;
+            position: absolute;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #63C8EE,
-                    #1678B8
-                );
+            inset: 0;
 
-            border-radius:
-                55% 55% 60% 60% /
-                65% 65% 42% 42%;
+            display: flex;
 
-            transform: rotate(45deg);
+            align-items: center;
+            justify-content: center;
 
-            box-shadow:
-                0 5px 12px rgba(22, 120, 184, 0.18);
+            color: var(--blau-dunkel);
+
+            font-size: 22px;
+            font-weight: 700;
+
+            letter-spacing: -0.03em;
         }
 
 
@@ -1172,11 +1168,12 @@
             .water-symbol {
                 width: 58px;
                 height: 58px;
+
+                font-size: 18px;
             }
 
             .water-symbol::before {
-                width: 19px;
-                height: 28px;
+                font-size: 18px;
             }
 
             .content {
@@ -1366,7 +1363,7 @@
                     </div>
 
 
-                    <!-- Zentrales Wassersymbol -->
+                    <!-- Zentrales H2O-Symbol -->
 
                     <div class="water-symbol"></div>
 
