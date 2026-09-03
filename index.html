@@ -10,7 +10,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
 
@@ -296,6 +300,8 @@
             align-items: center;
 
             min-height: 430px;
+
+            background: transparent;
         }
 
         .network-water {
@@ -544,7 +550,6 @@
 
         /* =========================================
            ZENTRALES H2O
-           Groß + transparent
         ========================================= */
 
         .water-symbol {
@@ -1055,21 +1060,37 @@
                 bottom: 0;
             }
 
-            .hero-inner {
-                grid-template-columns: 1fr;
 
-                gap: 55px;
+            /* =====================================
+               MOBILE: TEXT VOR GRAFIK
+            ===================================== */
+
+            .hero-inner {
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 40px;
+            }
+
+            .hero-content {
+                order: 1;
             }
 
             .water-visual {
-                order: -1;
+                order: 2;
 
                 min-height: 360px;
+
+                width: 100%;
+
+                background: transparent;
             }
 
             .network-water {
                 width: min(350px, 75vw);
             }
+
 
             .cards {
                 grid-template-columns: 1fr;
@@ -1112,8 +1133,33 @@
                 flex: 0 0 auto;
             }
 
+
+            /* =====================================
+               MOBILE HERO
+            ===================================== */
+
             .hero {
                 padding: 65px 0 125px;
+            }
+
+            .hero-inner {
+                gap: 28px;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .water-visual {
+                order: 2;
+
+                width: 100%;
+
+                min-height: 290px;
+
+                padding: 0;
+
+                background: transparent;
             }
 
             .hero h1 {
@@ -1124,13 +1170,20 @@
                 font-size: 16px;
             }
 
-            .water-visual {
-                min-height: 290px;
-            }
-
             .network-water {
                 width: 250px;
+
+                background:
+                    linear-gradient(
+                        145deg,
+                        #D8F7FF 0%,
+                        #8EDDF5 25%,
+                        #4DB9E2 52%,
+                        #1678B8 78%,
+                        #073B66 100%
+                    );
             }
+
 
             .network-line {
                 transform-origin: left center;
@@ -1170,6 +1223,7 @@
             .water-symbol::before {
                 font-size: 52px;
             }
+
 
             .content {
                 padding: 65px 0;
@@ -1238,10 +1292,12 @@
         <div class="container header-inner">
 
             <a href="#" class="logo">
+
                 <img
                     src="images/logosiwawipro.png"
                     alt="SiWaWiPro"
                 >
+
             </a>
 
 
